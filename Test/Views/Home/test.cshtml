@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "test";
+}
+
+<h2>test</h2>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<div class="first-div">
+    DIV 1
+    <button class="next">Next</button>
+</div>
+<div class="next-div" style="display:none;">
+    DIV 2
+    <button class="back">Back</button>
+    <button class="next">Submit</button>
+</div>
+
+
+<script>
+    $('.next').click(function () {
+        $(this).parent().hide().next().show();//hide parent and show next
+    });
+
+    $('.back').click(function () {
+        $(this).parent().hide().prev().show();//hide parent and show previous
+    });
+</script>
