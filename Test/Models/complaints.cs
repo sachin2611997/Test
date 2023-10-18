@@ -10,10 +10,10 @@ namespace Test.Models
         public string P_id { get; set; }
         [Display(Name = "Red Patch in Mouth")]
         //  public int Red_patch_mouth { get; set; }
-        public Nullable<bool> Red_patch_mouth { get; set; }
+        public bool Red_patch_mouth { get; set; } 
 
         [Display(Name = "White Patch in Mouth")]
-        public Nullable<bool> White_patch_mouth { get; set; }
+        public bool White_patch_mouth { get; set; } 
 
 
         [Display(Name = "Lump/swelling in Mouth")]

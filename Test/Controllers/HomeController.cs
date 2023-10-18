@@ -37,8 +37,8 @@ namespace Test.Controllers
 
 
         [HttpPost]
-        [ActionName("Create")]
-        public ActionResult Create(Main m, string Red_patch_mouth,string White_patch_mouth)
+        
+        public ActionResult CreatePost(Main m)
         {
             dd.AddRecord(m);
             return RedirectToAction("Create");
@@ -98,10 +98,17 @@ namespace Test.Controllers
             return RedirectToAction("Edit", "Home", new { id = P_id });
         }
 
-
-        public ActionResult test()
+        [HttpPost]
+      
+        public ActionResult test1( Main de)
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult test(test te)
+        {
+            return View(te);
         }
     }
 }

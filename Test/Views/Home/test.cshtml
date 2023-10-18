@@ -1,29 +1,81 @@
-﻿
+﻿@model Test.Models.test
+
 @{
-    ViewBag.Title = "test";
+    Layout = null;
 }
 
-<h2>test</h2>
+<!DOCTYPE html>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>test</title>
+</head>
+<body>
+    <form>
 
-<div class="first-div">
-    DIV 1
-    <button class="next">Next</button>
-</div>
-<div class="next-div" style="display:none;">
-    DIV 2
-    <button class="back">Back</button>
-    <button class="next">Submit</button>
-</div>
+        <div class="form-horizontal">
+            <h4>test</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CaseNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CaseNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CaseNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
 
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="Create" class="btn btn-default" onclick="BtnClick()" />
+                </div>
+            </div>
+        </div>
+    </form>
+    
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
+<script src="~/scripts/jquery-1.10.2.js"></script>
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
 <script>
-    $('.next').click(function () {
-        $(this).parent().hide().next().show();//hide parent and show next
-    });
 
-    $('.back').click(function () {
-        $(this).parent().hide().prev().show();//hide parent and show previous
-    });
+    function BtnClick(){
+     
+        var name = $("#Name").val();
+
+        var caseNo = $("#CaseNo").val();
+
+
+        var obj = {
+
+            Name: name,
+            CaseNo:caseNo
+        }
+
+        SubmitForm(obj);
+    }
+
+
+    function SubmitForm(obj) {
+        $.ajax({
+            url: "/Home/test1",
+            method: "POST",
+            data: obj,
+        })
+        }
 </script>

@@ -1,551 +1,325 @@
 ﻿@model Test.Models.Main
 
 
-@*<h2>Create</h2>*@
+<!DOCTYPE html>
 
-
-@*@using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-
-    }*@
-@{ Layout = null; }
-
-
-
-
-<html lang="en">
-<!--<![endif]--><!-- BEGIN HEAD -->
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <title>Metronic | Form Stuff - Form Wizard</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta content="" name="description">
-    <meta content="" name="author">
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all" rel="stylesheet" type="text/css">
-
-
-    <script src="~/assets/global/plugins/bootstrap-maxlength/bootstrap-maxlength.js"></script>
-    <link href="~/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="~/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
-    <link href="~/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="~/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
-    <link href="~/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css">
-    <!-- END GLOBAL MANDATORY STYLES -->
-    <!-- BEGIN PAGE LEVEL STYLES -->
-    <link rel="stylesheet" type="text/css" href="~/assets/global/plugins/select2/select2.css">
-    <!-- END PAGE LEVEL SCRIPTS -->
-    <!-- BEGIN THEME STYLES -->
-    <link href="~/assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css">
-    <link href="~/assets/global/css/plugins.css" rel="stylesheet" type="text/css">
-    <link href="~/assets/admin/layout4/css/layout.css" rel="stylesheet" type="text/css">
-    <link id="style_color" href="~/assets/admin/layout4/css/themes/light.css" rel="stylesheet" type="text/css">
-    <link href="~/assets/admin/layout4/css/custom.css" rel="stylesheet" type="text/css">
-    <!-- END THEME STYLES -->
-    <link rel="shortcut icon" href="favicon.ico">
-
-    @*<script type="text/javascript">
-    function ModifyCheckBoxes(Id) {
-    if (document.getElementById(Id).checked) {
-        if (Id == "chkNo") {
-            document.getElementById("chkYes").checked = false;
-        } else if (Id == "chkYes") {
-            document.getElementById("chkNo").checked = false;
-        }
-    };
-    };
-
-    </script>*@
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
 </head>
 
-<!-- END HEAD -->
-<!-- BEGIN BODY -->
-<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
-<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
-<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
-<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
-<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
-<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
-<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
-<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
-<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+<body>
+    <form>
 
-
-<body class="page-header-fixed page-sidebar-closed-hide-logo ">
-
-
-    <!-- BEGIN HEADER -->
-    <!-- END HEADER -->
-    <div class="clearfix">
-    </div>
-    <!-- BEGIN CONTAINER -->
-    <div class="page-container">
-        <!-- BEGIN SIDEBAR -->
-        <div class="page-sidebar-wrapper">
-            <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-            <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-
-        </div>
-        <!-- END SIDEBAR -->
-        <!-- BEGIN CONTENT -->
-        <div class="page-content-wrapper">
-            <div class="page-content">
-                <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-                <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                                <h4 class="modal-title">Modal title</h4>
-                            </div>
-                            <div class="modal-body">
-                                Widget settings form goes here
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn blue">Save changes</button>
-                                <button type="button" class="btn default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
+        <div class="form-horizontal">
+            <h4>Main</h4>
+            <hr />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.P_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Demos.P_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Demos.P_id, "", new { @class = "text-danger" })
                 </div>
-                <!-- /.modal -->
-                <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-                <!-- BEGIN PAGE HEADER-->
-                <!-- BEGIN PAGE HEAD -->
-                <!-- END PAGE HEAD -->
-                <!-- BEGIN PAGE BREADCRUMB -->
-                <!-- END PAGE BREADCRUMB -->
-                <!-- END PAGE HEADER-->
-                <!-- BEGIN PAGE CONTENT-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="portlet box blue" id="form_wizard_1">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    <i class="fa fa-gift"></i> Form Wizard - <span class="step-title">
-                                        Step 1 of 4
-                                    </span>
-                                </div>
-                                <div class="tools hidden-xs">
-                                    <a href="javascript:;" class="collapse" data-original-title="" title="">
-                                    </a>
-                                    <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title="">
-                                    </a>
-                                    <a href="javascript:;" class="reload" data-original-title="" title="">
-                                    </a>
-                                    <a href="javascript:;" class="remove" data-original-title="" title="">
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="portlet-body form">
-
-                                <form action="Create" class="form-horizontal" id="submit_form" method="post" novalidate="novalidate">
-                                    @*<form class="form-horizontal" action="Create" method="post">*@
-
-
-                                    <div class="form-wizard">
-                                        <div class="form-body">
-                                            <ul class="nav nav-pills nav-justified steps">
-                                                <li class="active">
-                                                    <a href="#tab1" data-toggle="tab" class="step" aria-expanded="true">
-                                                        <span class="number">
-                                                            1
-                                                        </span>
-                                                        <span class="desc">
-                                                            <i class="fa fa-check"></i> Account Setup
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#tab2" data-toggle="tab" class="step">
-                                                        <span class="number">
-                                                            2
-                                                        </span>
-                                                        <span class="desc">
-                                                            <i class="fa fa-check"></i> Profile Setup
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#tab3" data-toggle="tab" class="step active">
-                                                        <span class="number">
-                                                            3
-                                                        </span>
-                                                        <span class="desc">
-                                                            <i class="fa fa-check"></i> Billing Setup
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#tab4" data-toggle="tab" class="step">
-                                                        <span class="number">
-                                                            4
-                                                        </span>
-                                                        <span class="desc">
-                                                            <i class="fa fa-check"></i> Confirm
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <div id="bar" class="progress progress-striped" role="progressbar">
-                                                <div class="progress-bar progress-bar-success" style="width: 25%;">
-                                                </div>
-                                            </div>
-                                            <div class="tab-content">
-                                                <div class="alert alert-danger display-none">
-                                                    <button class="close" data-dismiss="alert"></button>
-                                                    You have some form errors. Please check below.
-                                                </div>
-                                                <div class="alert alert-success display-none">
-                                                    <button class="close" data-dismiss="alert"></button>
-                                                    Your form validation is successful!
-                                                </div>
-                                                <div class="tab-pane active" id="tab1">
-                                                    <h3 class="block">Provide your account details</h3>
-
-
-
-                                                    @*<div class="form-group">
-                                                            <label class="control-label col-md-3">
-                                                                Username <span class="required" aria-required="true">
-                                                                    *
-                                                                </span>
-                                                            </label>
-                                                            <div class="col-md-4">
-                                                                <input type="text" class="form-control" name="username">
-                                                                <span class="help-block">
-                                                                    Provide your username
-                                                                </span>
-                                                            </div>
-                                                        </div>*@
-
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.P_id, htmlAttributes: new { @class = "control-label col-md-3", @id = "P_id" })
-                                                        <div class="col-md-4">
-                                                            @Html.EditorFor(model => model.Demos.P_id, new { htmlAttributes = new { @class = "form-control" } })
-                                                            @Html.ValidationMessageFor(model => model.Demos.P_id, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.Fname, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-4">
-                                                            @Html.EditorFor(model => model.Demos.Fname, new { htmlAttributes = new { @class = "form-control" } })
-                                                            @Html.ValidationMessageFor(model => model.Demos.Fname, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.Mname, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-4">
-                                                            @Html.EditorFor(model => model.Demos.Mname, new { htmlAttributes = new { @class = "form-control" } })
-                                                            @Html.ValidationMessageFor(model => model.Demos.Mname, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.Lname, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-4">
-                                                            @Html.EditorFor(model => model.Demos.Lname, new { htmlAttributes = new { @class = "form-control" } })
-                                                            @Html.ValidationMessageFor(model => model.Demos.Lname, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.Sex, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-4">
-                                                            Male
-                                                            @Html.RadioButtonFor(model => model.Demos.Sex, "Male")
-                                                            &nbsp;  &nbsp;  &nbsp;
-                                                            Female
-                                                            @Html.RadioButtonFor(model => model.Demos.Sex, "Female")
-                                                            &nbsp;  &nbsp;  &nbsp;
-                                                            Others
-                                                            @Html.RadioButtonFor(model => model.Demos.Sex, "Others")
-
-                                                            @*@Html.ValidationMessageFor(model => model.Demos.Sex, "", new { @class = "text-danger" })*@
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.Education_id, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-4">
-                                                            @Html.DropDownListFor(model => model.Demos.Education_id, ViewBag.educalist as SelectList, "Select Education ", new { @class = "form-control" })
-                                                            @Html.ValidationMessageFor(model => model.Demos.Education_id, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.Mariatal_id, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-4">
-                                                            @Html.DropDownListFor(model => model.Demos.Mariatal_id, ViewBag.maritilist as SelectList, "Select Marital Status", new { @class = "form-control" })
-                                                            @Html.ValidationMessageFor(model => model.Demos.Mariatal_id, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.Religion_id, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-4">
-                                                            @Html.DropDownListFor(model => model.Demos.Religion_id, ViewBag.religlist as SelectList, "Select Religion", new { @class = "form-control" })
-                                                            @Html.ValidationMessageFor(model => model.Demos.Religion_id, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.Occupation_id, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-4">
-                                                            @Html.DropDownListFor(model => model.Demos.Occupation_id, ViewBag.occulist as SelectList, "Select Occupation", new { @class = "form-control" })
-                                                            @Html.ValidationMessageFor(model => model.Demos.Occupation_id, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.Address, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-4">
-                                                            @Html.EditorFor(model => model.Demos.Address, new { htmlAttributes = new { @class = "form-control" } })
-                                                            @Html.ValidationMessageFor(model => model.Demos.Address, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Demos.Pincode, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-4">
-                                                            @Html.EditorFor(model => model.Demos.Pincode, new { htmlAttributes = new { @class = "form-control" } })
-                                                            @Html.ValidationMessageFor(model => model.Demos.Pincode, "", new { @class = "text-danger" })
-                                                        </div>
-                                                    </div>
-
-
-
-                                                </div>
-
-
-
-
-
-
-
-
-                                                <div class="tab-pane" id="tab2">
-                                                    <h3 class="block">Provide your profile details</h3>
-
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Complaints.Red_patch_mouth, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-10">
-                                                            @Html.CheckBox("Red_patch_mouth",false)
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        @Html.LabelFor(model => model.Complaints.White_patch_mouth, htmlAttributes: new { @class = "control-label col-md-3" })
-                                                        <div class="col-md-10">
-                                                            @Html.CheckBox("White_patch_mouth", false)
-                                                        </div>
-
-                                                    </div>
-
-                                                 
-
-
-
-
-                                                    <div class="form-group">
-
-                                                    </div>
-                                                    <div class="form-group">
-
-                                                    </div>
-                                                    @*<div class="form-group">
-                                                            <label class="control-label col-md-3">Remarks</label>
-                                                            <div class="col-md-4">
-                                                                <textarea class="form-control" rows="3" name="remarks"></textarea>
-                                                            </div>
-                                                        </div>*@
-
-                                                </div>
-                                                <div class="tab-pane" id="tab3">
-                                                    <h3 class="block">Provide your billing and credit card details</h3>
-                                                    <div class="form-group">
-
-                                                    </div>
-                                                    <div class="form-group">
-
-                                                    </div>
-                                                    <div class="form-group">
-
-                                                    </div>
-                                                    <div class="form-group">
-
-                                                    </div>
-                                                    <div class="form-group">
-
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane" id="tab4">
-                                                    <h3 class="block">Confirm your account</h3>
-
-
-
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="form-actions">
-                                            <div class="row">
-                                                <div class="col-md-offset-3 col-md-9">
-                                                    <a href="javascript:;" class="btn default button-previous disabled" style="display: none;">
-                                                        <i class="m-icon-swapleft"></i> Back
-                                                    </a>
-                                                    <a href="javascript:;" class="btn blue button-next">
-                                                        Continue <i class="m-icon-swapright m-icon-white"></i>
-                                                    </a>
-
-                                                    @*<div class="form-group">
-                                                            <div class="col-md-offset-2 col-md-10">
-                                                                <input type="submit" value="Create" class="btn btn-default" id="btnSave" />
-                                                            </div>
-                                                        </div>*@
-
-                                                    <a href="javascript:;" class="btn green button-submit" id="btnSave" onclick="BtnClcik()" style="display: none;">
-                                                        Submit <i class="m-icon-swapright m-icon-white"></i>
-                                                    </a>
-                                                  
-                                                    @*<div class="form-group">
-
-                                                        </div>*@
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- END PAGE CONTENT-->
             </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Fname, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Demos.Fname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Demos.Fname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Mname, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Demos.Mname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Demos.Mname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Lname, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Demos.Lname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Demos.Lname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Demos.Age, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Demos.Age, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Sex, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    Female
+                    @Html.RadioButtonFor(model => model.Demos.Sex, "f")
+                    &nbsp;  &nbsp;  &nbsp;
+                    male
+                    @Html.RadioButtonFor(model => model.Demos.Sex, "m")
+                    &nbsp;  &nbsp;  &nbsp;
+                    Others
+                    @Html.RadioButtonFor(model => model.Demos.Sex, "o")
+
+                    @*@Html.ValidationMessageFor(model => model.Demos.Sex, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Education_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Demos.Education_id, ViewBag.educalist as SelectList, "Select Education ", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Demos.Education_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Mariatal_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Demos.Mariatal_id, ViewBag.maritilist as SelectList, "Select Marital Status", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Demos.Mariatal_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Religion_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Demos.Religion_id, ViewBag.religlist as SelectList, "Select Religion", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Demos.Religion_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Occupation_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Demos.Occupation_id, ViewBag.occulist as SelectList, "Select Occupation", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Demos.Occupation_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Demos.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Demos.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Demos.Pincode, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Demos.Pincode, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Demos.Pincode, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+
+
+            
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Red_patch_mouth, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Red_patch_mouth)
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.White_patch_mouth, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.White_patch_mouth)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Swelling_mouth, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Swelling_mouth)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Ulcer, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Ulcer)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Leukoplakia, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Leukoplakia)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Erythroplakia, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Erythroplakia)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Extract_socket, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Extract_socket)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Diff_chewing, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Diff_chewing)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Diff_swallowing, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Diff_swallowing)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Diff_speaking, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Diff_speaking)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Diff_moving_tongue, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Diff_moving_tongue)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Diff_spicy_food, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Diff_spicy_food)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Change_voice, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Change_voice)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Breast_Lump, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Breast_Lump)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Nipple_discharge, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Nipple_discharge)
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Foul_smelling, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Foul_smelling)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Post_coidal_bleeding, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Post_coidal_bleeding)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Spotting, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Spotting)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Abnormal_bleeding, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Abnormal_bleeding)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Complaints.Others, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(m => m.Complaints.Others)
+                    </div>
+                </div>
+
+
+                <div class="form-group" id="label">
+                    @Html.LabelFor(model => model.Complaints.Others_specify, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+
+
+
+                        @Html.EditorFor(model => model.Complaints.Others_specify, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Complaints.Others_specify, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+           
+
+
+
+
+
+
+
+
+
+           
+
+        
+            <input type="button" value="Create" class="btn btn-default" onclick="BtnClick()" />
         </div>
-        <!-- END CONTENT -->
-    </div>
-    <!-- END CONTAINER -->
-    <!-- BEGIN FOOTER -->
-    <!-- END FOOTER -->
-    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-    <!-- BEGIN CORE PLUGINS -->
-    <!--[if lt IE 9]>
-    <script src="../../assets/global/plugins/respond.min.js"></script>
-    <script src="../../assets/global/plugins/excanvas.min.js"></script>
-    <![endif]-->
-    <script src="~/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-    <script src="~/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
-    <!-- IMPORTAN~/d jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
-    <script src="~/assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="~/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="~/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-    <script src="~/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-    <script src="~/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-    <script src="~/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-    <script src="~/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-    <script src="~/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-    <!-- END CORE PLUGINS -->
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script type="text/javascript" src="~/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="~/assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
-    <script type="text/javascript" src="~/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
-    <!-- END PAGE LEVEL PLUGINS -->
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script type="text/javascript" src="~/assets/global/plugins/select2/select2.min.js"></script>
-    <!-- END PAGE LEVEL PLUGINS -->
-    <!-- BEGIN PAGE LEVEL SCRIPTS -->
-    <script src="~/assets/global/scripts/metronic.js" type="text/javascript"></script>
-    <script src="~/assets/admin/layout4/scripts/layout.js" type="text/javascript"></script>
-    <script src="~/assets/admin/layout4/scripts/demo.js" type="text/javascript"></script>
-    <script src="~/assets/admin/pages/scripts/form-wizard.js"></script>
+    </form>
 
-
-
-    <!-- END PAGE LEVEL SCRIPTS -->
-    <script>
-        jQuery(document).ready(function () {
-            // initiate layout and plugins
-            Metronic.init(); // init metronic core components
-            Layout.init(); // init current layout
-            Demo.init(); // init demo features
-            FormWizard.init();
-        });
-    </script>
-
-
-
-    <!-- END JAVASCRIPTS -->
-
-
-    <span role="status" aria-live="polite" class="select2-hidden-accessible"></span>
-
-</body><!-- END BODY -->
-
-</html>
-
-}
-
-@*<div>
+    <div>
         @Html.ActionLink("Back to List", "Index")
     </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+</body>
+</html>
 
 
 <script>
 
-
-
-    $(function () {
-        
-        $('#label').hide();
-        $("[name='Complaints.Others']").click(function () {
-            if ($(this).is(':checked')) {
-                $('#label').show();
-            }
-            else {
-                $('#label').hide();
-            }
-        });
-    });
-
-
-
-    function BtnClcik() {
-
-       
-        
-        //demo
+    function BtnClick() {
         var id = $("#Demos_P_id").val();
         var fname = $("#Demos_Fname").val();
         var mname = $("#Demos_Mname").val();
         var lname = $("#Demos_Lname").val();
-        var sex = $("#Demos_Sex").val();
+        var sex = $("#Demos_Sex").attr("checked");
         var educationid = $("#Demos_Education_id").val();
         var mariatalid = $("#Demos_Mariatal_id").val();
         var religionid = $("#Demos_Religion_id").val();
@@ -553,95 +327,81 @@
         var address = $("#Demos_Address").val();
         var pincode = $("#Demos_Pincode").val();
 
-
-
-
-
-
-       
-       // complaints
-        var redpatchmouth = $("#Red_patch_mouth").val();
-        var whitepatchmouth = $("#White_patch_mouth").val();
-        //var swelling_mouth = $("#chkYes").val();
-        //var ulcer = $("#chkYes").val();
-        //var leukoplakia = $("#chkYes").val();
-        //var erythroplakia = $("#chkYes").val();
-        //var extract_socket = $("#chkYes").val();
-        //var whitepatchmouth = $("#chkYes").val();
-        //var diff_chewing = $("#chkYes").val();
-        //var diff_swallowing = $("#chkYes").val();
-        //var diff_speaking = $("#chkYes").val();
-        //var diff_moving_tongue = $("#chkYes").val();
-        //var diff_spicy_food = $("#chkYes").val();
-        //var change_voice = $("#chkYes").val();
-        //var breast_Lump = $("#chkYes").val();
-        //var nipple_discharge = $("#chkYes").val();
-        //var foul_smelling = $("#chkYes").val();
-        //var post_coidal_bleeding = $("#chkYes").val();
-        //var spotting = $("#chkYes").val();
-        //var abnormal_bleeding = $("#chkYes").val();
-        //var others = $("#chkYes").val();
-        //var others_specify = $("#Complaints_Others_specify").val();
-
-       
-       
+        var redpatchmouth = $("#Complaints_Red_patch_mouth").is(':checked');
+        var whitepatchmouth = $("#Complaints_White_patch_mouth").is(':checked');
+        var swelling_mouth = $("#Complaints_Swelling_mouth").is(':checked');
+        var ulcer = $("#Complaints_Ulcer").is(':checked');
+        var leukoplakia = $("#Complaints_Leukoplakia").is(':checked');
+        var erythroplakia = $("#Complaints_Erythroplakia").is(':checked');;
+        var extract_socket = $("#Complaints_Extract_socket").is(':checked');
+        var diff_chewing = $("#Complaints_Diff_chewing").is(':checked');
+        var diff_swallowing = $("#Complaints_Diff_swallowing").is(':checked');
+        var diff_speaking = $("#Complaints_Diff_speaking").is(':checked');
+        var diff_moving_tongue = $("#Complaints_Diff_moving_tongue").is(':checked');
+        var diff_spicy_food = $("#Complaints_Diff_spicy_food").is(':checked');
+        var change_voice = $("#Complaints_Change_voice").is(':checked');
+        var breast_Lump = $("#Complaints_Breast_Lump").is(':checked');
+        var nipple_discharge = $("#Complaints_Nipple_discharge").is(':checked');
+        var foul_smelling = $("#Complaints_Foul_smelling").is(':checked');
+        var post_coidal_bleeding = $("#Complaints_Post_coidal_bleeding").is(':checked');
+        var spotting = $("#Complaints_Spotting").is(':checked');
+        var abnormal_bleeding = $("#Complaints_Abnormal_bleeding").is(':checked');
+        var others = $("#Complaints_Others").is(':checked');
+        var others_specify = $("#Complaints_Others_specify").is(':checked');
 
         var obj = {
 
-            Demos: {
-                P_id: id,
-                Fname: fname,
-                Mname: mname,
-                Lname: lname,
-                Sex: sex,
-                Education_id: educationid,
-                Mariatal_id: mariatalid,
-                Religion_id: religionid,
-                Occupation_id: occupationid,
-                Address: address,
-                Pincode: pincode
-            },
+            Demos:
+                {
+
+                    P_id: id,
+                    Fname: fname,
+                    Mname: mname,
+                    Lname: lname,
+                    Sex: sex,
+                    Education_id: educationid,
+                    Mariatal_id: mariatalid,
+                    Religion_id: religionid,
+                    Occupation_id: occupationid,
+                    Address: address,
+                    Pincode: pincode
+                },
+            Complaints:
+                {
+
+                    Red_patch_mouth: redpatchmouth,
+                    White_patch_mouth: whitepatchmouth,
+                    Swelling_mouth: swelling_mouth,
+                    Ulcer: ulcer,
+                    Leukoplakia: leukoplakia,
+                    Erythroplakia: erythroplakia,
+                    Extract_socket: extract_socket,
+                    Diff_chewing: diff_chewing,
+                    Diff_swallowing: diff_swallowing,
+                    Diff_speaking: diff_speaking,
+                    Diff_moving_tongue: diff_moving_tongue,
+                    Diff_spicy_food: diff_spicy_food,
+                    Change_voice: change_voice,
+                    Breast_Lump: breast_Lump,
+                    Nipple_discharge: nipple_discharge,
+                    Foul_smelling: foul_smelling,
+                    Post_coidal_bleeding: post_coidal_bleeding,
+                    Spotting: spotting,
+                    Abnormal_bleeding: abnormal_bleeding,
+                    Others: others,
+                    Others_specify: others_specify
+                }
 
 
 
-            Complaints: {
-               Red_patch_mouth: redpatchmouth,
-                White_patch_mouth: whitepatchmouth
-                //Swelling_mouth: swelling_mouth,
-                //Ulcer: ulcer,
-                //Leukoplakia: leukoplakia,
-                //Erythroplakia: erythroplakia,
-                //Extract_socket: extract_socket,
-                //Diff_chewing: diff_chewing,
-                //Diff_swallowing: diff_swallowing,
-                //Diff_speaking: diff_speaking,
-                //Diff_moving_tongue: diff_moving_tongue,
-                //Diff_spicy_food: diff_spicy_food,
-                //Change_voice: change_voice,
-                //Breast_Lump: breast_Lump,
-                //Nipple_discharge: nipple_discharge,
-                //Foul_smelling: foul_smelling,
-                //Post_coidal_bleeding: post_coidal_bleeding,
-                //Spotting: spotting,
-                //Abnormal_bleeding: abnormal_bleeding,
-                //Others: others,
-                //Others_specify: others_specify
-            
-                
-            }
-
-            
         }
-
-       
         SubmitForm(obj);
     }
-    
-    
-   
+
+
     function SubmitForm(obj) {
-            $.ajax({
-            url: "/Home/Create",
+        $.ajax({
+            url: "/Home/test1",
             method: "POST",
             data: obj,
             success: function (data) {
@@ -652,7 +412,4 @@
             }
         })
     }
-    
 </script>
-
-

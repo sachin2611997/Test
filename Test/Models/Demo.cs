@@ -9,7 +9,7 @@ namespace Test.Models
         public string Fname { get; set; }
         public string Mname { get; set; }
         public string Lname { get; set; }
-        // public int? Age { get; set; }
+        public int? Age { get; set; }
         public string Sex { get; set; } = null;
         [Display(Name = "Education")]
         public int? Education_id { get; set; }
