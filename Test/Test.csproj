@@ -4818,6 +4818,8 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
     <Content Include="Views\Home\test.cshtml" />
+    <Content Include="Views\Home\EditPage.cshtml" />
+    <Content Include="Views\Home\Page.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -21,7 +21,7 @@
     <link href="~/assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css" />
     <link href="~/assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/admin/layout4/css/layout.css" rel="stylesheet" type="text/css" />
-    <link id="style_color" href="../../assets/admin/layout4/css/themes/light.css" rel="stylesheet" type="text/css" />
+    <link id="style_color" href="~/assets/admin/layout4/css/themes/light.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/admin/layout4/css/custom.css" rel="stylesheet" type="text/css" />
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
@@ -51,12 +51,29 @@
                                 <div class="tools hidden-xs">
                                     <a href="javascript:;" class="collapse">
                                     </a>
-                                    <a href="#portlet-config" data-toggle="modal" class="config">
+
+                                    <a href="@Url.Action("Page","Home")" class="config">
+                                        @*<i class="fa fa-pencil"></i>*@
                                     </a>
                                     <a href="javascript:;" class="reload">
                                     </a>
                                     <a href="javascript:;" class="remove">
                                     </a>
+                                    @*<div class="actions">
+                                        <div class="btn-group">
+                                            <a class="btn btn-sm blue dropdown-toggle" href="javascript:;" data-toggle="dropdown" aria-expanded="false">
+                                                Actions <i class="fa fa-angle-down"></i>
+                                            </a>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="@Url.Action("Page","Home")">
+                                                        <i class="fa fa-pencil"></i> Edit
+                                                    </a>
+                                                  
+                                                </li>                                                                                                                                       
+                                            </ul>
+                                        </div>
+                                    </div>*@
                                 </div>
                             </div>
                             <div class="portlet-body form">

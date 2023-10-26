@@ -278,7 +278,7 @@ namespace Test.Models
                         Fname = Convert.ToString(dr["Fname"]),
                         Mname = Convert.ToString(dr["Mname"]),
                         Lname = Convert.ToString(dr["Lname"]),
-                        //Age=Convert.ToInt32(dr["Age"]),
+                       
                         Sex = Convert.ToString(dr["Sex"]),
                         Education_id = Convert.ToInt32(dr["Education_id"]),
                         Mariatal_id = Convert.ToInt32(dr["Marital_id"]),
@@ -286,6 +286,7 @@ namespace Test.Models
                         Occupation_id = Convert.ToInt32(dr["Occupation_id"]),
                         Address = Convert.ToString(dr["Address"]),
                         Pincode = Convert.ToInt32(dr["Pincode"]),
+                        // Age=Convert.ToInt32(dr["Age"]),
                     },
                     Complaints = new complaints
                     {

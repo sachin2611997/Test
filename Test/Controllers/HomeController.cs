@@ -85,9 +85,28 @@ namespace Test.Controllers
         }
 
         [HttpGet]
-        public ActionResult EditPage()
+        public ActionResult EditPage(string id)
         {
-            return View();
+            var data = dd.GetRecords().First(x => x.Demos.P_id == id);
+
+            var query = (from s in db.Masters where s.Name == "Education" select s);
+            var list = query.ToList();
+            ViewBag.educalist = new SelectList(list, "Index1", "Value");
+
+            var OccupationQuery = (from s in db.Masters where s.Name == "Occupation" select s);
+            var Occupationlist = OccupationQuery.ToList();
+            ViewBag.occulist = new SelectList(Occupationlist, "Index1", "Value");
+
+            var MaritalQuery = (from s in db.Masters where s.Name == "Marital" select s);
+            var Maritallist = MaritalQuery.ToList();
+            ViewBag.maritilist = new SelectList(Maritallist, "Index1", "Value");
+
+            var ReligionQuery = (from s in db.Masters where s.Name == "Religion" select s);
+            var Religionllist = ReligionQuery.ToList();
+            ViewBag.religlist = new SelectList(Religionllist, "Index1", "Value");
+
+
+            return View(data);
         }
 
         [HttpPost]
@@ -98,17 +117,16 @@ namespace Test.Controllers
             return RedirectToAction("Edit", "Home", new { id = P_id });
         }
 
-        [HttpPost]
-      
-        public ActionResult test1( Main de)
+        public ActionResult Page()
         {
             return View();
         }
 
-        [HttpGet]
-        public ActionResult test(test te)
+        [HttpPost]
+        [ActionName("Page")]
+        public ActionResult PageId(string P_id)
         {
-            return View(te);
+            return RedirectToAction("EditPage", "Home", new { id = P_id });
         }
     }
 }
