@@ -71,9 +71,8 @@ namespace Test.Controllers
             return View(data);
         }
 
-        [HttpPost]
-        [ActionName("Edit")]
-        public ActionResult Edit_Post(Main main)
+        [HttpPost]       
+        public ActionResult EditPost(Main main)
         {
 
             var m = dd.EditRecord(main);
@@ -116,6 +115,9 @@ namespace Test.Controllers
 
             return RedirectToAction("Edit", "Home", new { id = P_id });
         }
+
+
+
 
         public ActionResult Page()
         {

@@ -56,28 +56,11 @@
                                     </a>
 
                               
-                                <a href="@Url.Action("Page","Home")" class="config">
-                                    @*<i class="fa fa-pencil"></i>*@
-                                </a>
-                              
-                                   
-                                    @*<a href="javascript:;" class="remove">
-                                    </a>*@
-                                @*<div class="actions">
-                                    <div class="btn-group">
-                                        <a class="btn btn-sm blue dropdown-toggle" href="javascript:;" data-toggle="dropdown" aria-expanded="false">
-                                            Actions <i class="fa fa-angle-down"></i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li>
-                                                <a href="@Url.Action("Page","Home")">
-                                                    <i class="fa fa-pencil"></i> Edit
-                                                </a>
+                               
+                                &nbsp;
+                                <a href="@Url.Action("Page","Home")" class="fa fa-edit" style="color:white" title="Edit">
 
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>*@
+                                </a>
                             </div>
                         </div>
                         <div class="portlet-body form">
@@ -91,7 +74,7 @@
                                                         1
                                                     </span>
                                                     <span class="desc">
-                                                        <i class="fa fa-check"></i> Account Setup
+                                                        <i class="fa fa-check"></i> Demographic
                                                     </span>
                                                 </a>
                                             </li>
@@ -101,7 +84,7 @@
                                                         2
                                                     </span>
                                                     <span class="desc">
-                                                        <i class="fa fa-check"></i> Profile Setup
+                                                        <i class="fa fa-check"></i> Complaints
                                                     </span>
                                                 </a>
                                             </li>
@@ -111,7 +94,7 @@
                                                         3
                                                     </span>
                                                     <span class="desc">
-                                                        <i class="fa fa-check"></i> Billing Setup
+                                                        <i class="fa fa-check"></i> Test 1
                                                     </span>
                                                 </a>
                                             </li>
@@ -121,7 +104,7 @@
                                                         4
                                                     </span>
                                                     <span class="desc">
-                                                        <i class="fa fa-check"></i> Confirm
+                                                        <i class="fa fa-check"></i> Test 2
                                                     </span>
                                                 </a>
                                             </li>
@@ -466,9 +449,7 @@
     <!-- END PAGE CONTENT-->
 
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+    
 </body>
 </html>
 
@@ -498,6 +479,7 @@
         var fname = $("#Demos_Fname").val();
         var mname = $("#Demos_Mname").val();
         var lname = $("#Demos_Lname").val();
+        var age   = $("#Demos_Age").val();
         var sex = $(":radio:checked").val();
         var educationid = $("#Demos_Education_id").val();
         var mariatalid = $("#Demos_Mariatal_id").val();
@@ -537,6 +519,7 @@
                     Fname: fname,
                     Mname: mname,
                     Lname: lname,
+                    Age: age,
                     Sex: sex,
                     Education_id: educationid,
                     Mariatal_id: mariatalid,
@@ -581,11 +564,12 @@
 
     function SubmitForm(obj) {
         $.ajax({
-            url: "/Home/CreatePost",
+            url: "/Home/EditPost",
             method: "POST",
             data: obj,
             success: function (data) {
-                alert(data);
+                window.location.href = "/Home/Create/";
+                alert('Data Updated');
             },
             error: function (err) {
                 console.log(err);

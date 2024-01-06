@@ -30,6 +30,8 @@ namespace Test.Models
                 cmd.Parameters.AddWithValue("@Occupation_id", main.Demos.Occupation_id);
                 cmd.Parameters.AddWithValue("@Address", main.Demos.Address);
                 cmd.Parameters.AddWithValue("@Pincode", main.Demos.Pincode);
+
+                cmd.Parameters.AddWithValue("@Age", main.Demos.Age);
                 // Complaints properties
                 cmd.Parameters.AddWithValue("@C_id", main.Demos.P_id);
                 cmd.Parameters.AddWithValue("@Red_patch_mouth", main.Complaints.Red_patch_mouth);
@@ -133,6 +135,12 @@ namespace Test.Models
                 paramPin.ParameterName = "@Pincode";
                 paramPin.Value = main.Demos.Pincode;
                 cmd.Parameters.Add(paramPin);
+
+
+                SqlParameter paramAge = new SqlParameter();
+                paramAge.ParameterName = "@Age";
+                paramAge.Value = main.Demos.Age;
+                cmd.Parameters.Add(paramAge);
 
                 SqlParameter paramCId = new SqlParameter();
                 paramCId.ParameterName = "@C_id";
@@ -286,7 +294,7 @@ namespace Test.Models
                         Occupation_id = Convert.ToInt32(dr["Occupation_id"]),
                         Address = Convert.ToString(dr["Address"]),
                         Pincode = Convert.ToInt32(dr["Pincode"]),
-                        // Age=Convert.ToInt32(dr["Age"]),
+                        Age=Convert.ToInt32(dr["Age"]),
                     },
                     Complaints = new complaints
                     {
