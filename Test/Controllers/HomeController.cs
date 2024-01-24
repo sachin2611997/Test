@@ -40,7 +40,19 @@ namespace Test.Controllers
         
         public ActionResult CreatePost(Main m)
         {
+           
+            
+
             dd.AddRecord(m);
+            string id = m.Demos.P_id;
+
+         // var add=  m.Demos.Address.Take(3);
+       //  var a=   m.Demos.Address.Substring(0, 3);
+          //  var g = db.Demos.Max(u => (string.IsNullOrEmpty(u.P_id)));
+           var rw= db.Demos.DefaultIfEmpty().Max(r => r.P_id == null);
+        //  var f=  string.Join("", add + id);
+         //  var d= id + 000001;          
+              
             return RedirectToAction("Create");
         }
 
@@ -129,6 +141,15 @@ namespace Test.Controllers
         public ActionResult PageId(string P_id)
         {
             return RedirectToAction("EditPage", "Home", new { id = P_id });
+        }
+
+
+
+        public string getstringid(Main m)
+        {
+          string value=  db.Demos.Where(x => x.P_id == m.Demos.P_id).Max(x => x.P_id);
+            m.Demos.P_id = value + 1;
+            return m.Demos.P_id ;
         }
     }
 }
