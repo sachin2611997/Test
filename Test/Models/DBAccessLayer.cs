@@ -329,8 +329,6 @@ namespace Test.Models
                         Others = Convert.ToBoolean(dr["Others"]),
                         Others_specify = Convert.ToString(dr["Others_specify"])
 
-
-
                     }
 
                 });
