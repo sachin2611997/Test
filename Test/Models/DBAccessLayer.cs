@@ -15,47 +15,55 @@ namespace Test.Models
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("sp_demo_Add", con);
-                //Demo properties
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@P_id", main.Demos.P_id);
-                cmd.Parameters.AddWithValue("@Fname", main.Demos.Fname);
-                cmd.Parameters.AddWithValue("@Mname", main.Demos.Mname);
-                cmd.Parameters.AddWithValue("@Lname", main.Demos.Lname);
-                //  cmd.Parameters.AddWithValue("@Age", main.Demos.Age);
-                cmd.Parameters.AddWithValue("@Sex", main.Demos.Sex);
-                cmd.Parameters.AddWithValue("@Education_id", main.Demos.Education_id);
-                cmd.Parameters.AddWithValue("@Marital_id", main.Demos.Mariatal_id);
-                cmd.Parameters.AddWithValue("@Religion_id", main.Demos.Religion_id);
-                cmd.Parameters.AddWithValue("@Occupation_id", main.Demos.Occupation_id);
-                cmd.Parameters.AddWithValue("@Address", main.Demos.Address);
-                cmd.Parameters.AddWithValue("@Pincode", main.Demos.Pincode);
+                String query = "INSERT INTO dbo.Demographic (P_id,Fname,Mname,Lname,Sex,Education_id,Marital_id,Religion_id,Occupation_id,Address,Pincode,Age)VALUES(@P_id, @Fname, @Mname, @Lname, @Sex, @Education_id, @Marital_id, @Religion_id, @Occupation_id, @Address, @Pincode, @Age)";
 
-                cmd.Parameters.AddWithValue("@Age", main.Demos.Age);
+                String query1 = "INSERT INTO dbo.Complaints (P_id,Red_patch_mouth,White_patch_mouth,Ulcer,Leukoplakia,Erythroplakia,Extract_socket ,Diff_chewing,Diff_swallowing,Diff_speaking,Diff_moving_tongue,Diff_spicy_food,Change_voice,Breast_Lump,Nipple_discharge ,Foul_smelling,Post_coidal_bleeding,Spotting,Abnormal_bleeding,Others,Others_specify) VALUES(@C_id, @Red_patch_mouth, @White_patch_mouth, @Ulcer, @Leukoplakia, @Erythroplakia, @Extract_socket, @Diff_chewing, @Diff_swallowing, @Diff_speaking, @Diff_moving_tongue, @Diff_spicy_food, @Change_voice, @Breast_Lump, @Nipple_discharge, @Foul_smelling, @Post_coidal_bleeding, @Spotting, @Abnormal_bleeding, @Others, @Other_specify)";
+
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlCommand cmd1 = new SqlCommand(query1, con);
+                //Demo properties
+              //  cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@P_id", main.Demos.P_id ?? (object)DBNull.Value);
+                
+                cmd.Parameters.AddWithValue("@Fname", main.Demos.Fname?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Mname", main.Demos.Mname ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Lname", main.Demos.Lname ?? (object)DBNull.Value);
+                //  cmd.Parameters.AddWithValue("@Age", main.Demos.Age);
+                cmd.Parameters.AddWithValue("@Sex", main.Demos.Sex ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Education_id", main.Demos.Education_id ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Marital_id", main.Demos.Mariatal_id ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Religion_id", main.Demos.Religion_id ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Occupation_id", main.Demos.Occupation_id ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Address", main.Demos.Address ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Pincode", main.Demos.Pincode ?? (object)DBNull.Value);
+
+                cmd.Parameters.AddWithValue("@Age", main.Demos.Age ?? (object)DBNull.Value);
                 // Complaints properties
-                cmd.Parameters.AddWithValue("@C_id", main.Demos.P_id);
-                cmd.Parameters.AddWithValue("@Red_patch_mouth", main.Complaints.Red_patch_mouth);
-                cmd.Parameters.AddWithValue("@White_patch_mouth", main.Complaints.White_patch_mouth);
-                cmd.Parameters.AddWithValue("@Ulcer", main.Complaints.Ulcer);
-                cmd.Parameters.AddWithValue("@Leukoplakia", main.Complaints.Leukoplakia);
-                cmd.Parameters.AddWithValue("@Erythroplakia", main.Complaints.Erythroplakia);
-                cmd.Parameters.AddWithValue("@Extract_socket", main.Complaints.Extract_socket);
-                cmd.Parameters.AddWithValue("@Diff_chewing", main.Complaints.Diff_chewing);
-                cmd.Parameters.AddWithValue("@Diff_swallowing", main.Complaints.Diff_swallowing);
-                cmd.Parameters.AddWithValue("@Diff_speaking", main.Complaints.Diff_speaking);
-                cmd.Parameters.AddWithValue("@Diff_moving_tongue", main.Complaints.Diff_moving_tongue);
-                cmd.Parameters.AddWithValue("@Diff_spicy_food", main.Complaints.Diff_spicy_food);
-                cmd.Parameters.AddWithValue("@Change_voice", main.Complaints.Change_voice);
-                cmd.Parameters.AddWithValue("@Breast_Lump", main.Complaints.Breast_Lump);
-                cmd.Parameters.AddWithValue("@Nipple_discharge", main.Complaints.Nipple_discharge);
-                cmd.Parameters.AddWithValue("@Foul_smelling", main.Complaints.Foul_smelling);
-                cmd.Parameters.AddWithValue("@Post_coidal_bleeding", main.Complaints.Post_coidal_bleeding);
-                cmd.Parameters.AddWithValue("@Spotting", main.Complaints.Spotting);
-                cmd.Parameters.AddWithValue("@Abnormal_bleeding", main.Complaints.Abnormal_bleeding);
-                cmd.Parameters.AddWithValue("@Others", main.Complaints.Others);
-                cmd.Parameters.AddWithValue("@Other_specify", main.Complaints.Others_specify);
+                cmd1.Parameters.AddWithValue("@C_id", main.Demos.P_id ?? (object)DBNull.Value);
+                cmd1.Parameters.AddWithValue("@Red_patch_mouth", SqlDbType.Bit).Value= main.Complaints.Red_patch_mouth;
+                cmd1.Parameters.AddWithValue("@White_patch_mouth", SqlDbType.Bit).Value = main.Complaints.White_patch_mouth;
+                cmd1.Parameters.AddWithValue("@Ulcer", SqlDbType.Bit).Value = main.Complaints.Ulcer;
+                cmd1.Parameters.AddWithValue("@Leukoplakia", SqlDbType.Bit).Value = main.Complaints.Leukoplakia;
+                cmd1.Parameters.AddWithValue("@Erythroplakia", SqlDbType.Bit).Value = main.Complaints.Erythroplakia;
+                cmd1.Parameters.AddWithValue("@Extract_socket", SqlDbType.Bit).Value = main.Complaints.Extract_socket;
+                cmd1.Parameters.AddWithValue("@Diff_chewing", SqlDbType.Bit).Value = main.Complaints.Diff_chewing;
+                cmd1.Parameters.AddWithValue("@Diff_swallowing", SqlDbType.Bit).Value = main.Complaints.Diff_swallowing;
+                cmd1.Parameters.AddWithValue("@Diff_speaking", SqlDbType.Bit).Value = main.Complaints.Diff_speaking;
+                cmd1.Parameters.AddWithValue("@Diff_moving_tongue", SqlDbType.Bit).Value = main.Complaints.Diff_moving_tongue;
+                cmd1.Parameters.AddWithValue("@Diff_spicy_food", SqlDbType.Bit).Value = main.Complaints.Diff_spicy_food;
+                cmd1.Parameters.AddWithValue("@Change_voice", SqlDbType.Bit).Value = main.Complaints.Change_voice;
+                cmd1.Parameters.AddWithValue("@Breast_Lump", SqlDbType.Bit).Value = main.Complaints.Breast_Lump;
+                cmd1.Parameters.AddWithValue("@Nipple_discharge", SqlDbType.Bit).Value = main.Complaints.Nipple_discharge;
+                cmd1.Parameters.AddWithValue("@Foul_smelling", SqlDbType.Bit).Value = main.Complaints.Foul_smelling;
+                cmd1.Parameters.AddWithValue("@Post_coidal_bleeding", SqlDbType.Bit).Value = main.Complaints.Post_coidal_bleeding;
+                cmd1.Parameters.AddWithValue("@Spotting", SqlDbType.Bit).Value = main.Complaints.Spotting;
+                cmd1.Parameters.AddWithValue("@Abnormal_bleeding", SqlDbType.Bit).Value = main.Complaints.Abnormal_bleeding;
+                cmd1.Parameters.AddWithValue("@Others", SqlDbType.Bit).Value = main.Complaints.Others;
+                cmd1.Parameters.AddWithValue("@Other_specify",  main.Complaints.Others_specify ?? (object)DBNull.Value);
                 con.Open();
                 cmd.ExecuteNonQuery();
+                cmd1.ExecuteNonQuery();
                 con.Close();
                 return ("Data save Successfully");
             }
