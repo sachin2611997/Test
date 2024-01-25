@@ -32,8 +32,34 @@ namespace Test.Controllers
             var ReligionQuery = (from s in db.Masters where s.Name == "Religion" select s);
             var Religionllist = ReligionQuery.ToList();
             ViewBag.religlist = new SelectList(Religionllist, "Index1", "Value");
+
+            var StatusQuery = (from s in db.Masters where s.Name == "Status" select s);
+            var Statuslist = StatusQuery.ToList();
+            ViewBag.statuslist = new SelectList(Statuslist, "Index1", "Value");
+
+            var RelativeQuery = (from s in db.Masters where s.Name == "Relative" select s);
+            var Relativelist = RelativeQuery.ToList();
+            ViewBag.relativelist = new SelectList(Relativelist, "Index1", "Value");
+
+            var MenopauseQuery = (from s in db.Masters where s.Name == "Menopause" select s);
+            var Menolist = MenopauseQuery.ToList();
+            ViewBag.menolist = new SelectList(Menolist, "Index1", "Value");
+
+
+
+
+
             return View();
         }
+
+
+
+
+
+
+
+
+
 
 
         [HttpPost]
@@ -103,6 +129,11 @@ namespace Test.Controllers
             var ReligionQuery = (from s in db.Masters where s.Name == "Religion" select s);
             var Religionllist = ReligionQuery.ToList();
             ViewBag.religlist = new SelectList(Religionllist, "Index1", "Value");
+
+
+          
+
+
 
 
             return View(data);

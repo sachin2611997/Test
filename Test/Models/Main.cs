@@ -12,5 +12,7 @@ namespace Test.Models
         public masters Masters { get; set; }
 
         public complaints Complaints { get; set; }
+
+        public history History { get; set; }
     }
 }

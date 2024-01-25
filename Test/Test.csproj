@@ -4800,6 +4800,7 @@
     <Compile Include="Models\DBAccessLayer.cs" />
     <Compile Include="Models\DbEntity.cs" />
     <Compile Include="Models\Demo.cs" />
+    <Compile Include="Models\history.cs" />
     <Compile Include="Models\Main.cs" />
     <Compile Include="Models\masters.cs" />
     <Compile Include="Models\test.cs" />
