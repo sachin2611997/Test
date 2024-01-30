@@ -14,5 +14,7 @@ namespace Test.Models
         public complaints Complaints { get; set; }
 
         public history History { get; set; }
+
+        public exam exam { get; set; }
     }
 }
