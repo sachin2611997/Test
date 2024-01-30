@@ -45,9 +45,15 @@ namespace Test.Controllers
             var Menolist = MenopauseQuery.ToList();
             ViewBag.menolist = new SelectList(Menolist, "Index1", "Value");
 
+            var HabitQuery = (from s in db.Masters where s.Name == "Habit" select s);
+            var Habitlist = HabitQuery.ToList();
+            ViewBag.habitlist = new SelectList(Habitlist, "Index1", "Value");
 
+            var LifeStyleQuery = (from s in db.Masters where s.Name == "LifeStyle" select s);
+            var LifeStylelist = LifeStyleQuery.ToList();
+            ViewBag.lifestylelist = new SelectList(LifeStylelist, "Index1", "Value");
 
-
+           
 
             return View();
         }
@@ -66,8 +72,8 @@ namespace Test.Controllers
         
         public ActionResult CreatePost(Main m)
         {
-           
-            
+
+          
 
             dd.AddRecord(m);
             string id = m.Demos.P_id;
