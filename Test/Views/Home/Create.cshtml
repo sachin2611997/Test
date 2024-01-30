@@ -42,7 +42,7 @@
             <br />
             <br />
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="portlet box blue" id="form_wizard_1">
                         <div class="portlet-title">
                             <div class="caption">
@@ -117,7 +117,7 @@
                                                         4
                                                     </span>
                                                     <span class="desc">
-                                                        <i class="fa fa-check"></i> Test 2
+                                                        <i class="fa fa-check"></i> Examination
                                                     </span>
                                                 </a>
                                             </li>
@@ -418,13 +418,12 @@
                                                 <div class="form-group" id="label">
                                                     @Html.LabelFor(model => model.Complaints.Others_specify, htmlAttributes: new { @class = "control-label col-md-2" })
                                                     <div class="col-md-10">
-
-
-
                                                         @Html.EditorFor(model => model.Complaints.Others_specify, new { htmlAttributes = new { @class = "form-control" } })
                                                         @Html.ValidationMessageFor(model => model.Complaints.Others_specify, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
+
+                                                
 
 
 
@@ -537,6 +536,9 @@
                                                 </div>
 
 
+
+
+
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.History.Lmp_dt, htmlAttributes: new { @class = "control-label col-md-2" })
                                                     <div class="col-md-10">
@@ -555,12 +557,48 @@
 
 
                                                 <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Menar_age, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.History.Menar_age, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.History.Menar_age, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Mary_age, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.History.Mary_age, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.History.Mary_age, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Delv_age, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.History.Delv_age, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.History.Delv_age, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                
+                                                <div class="form-group">
                                                     @Html.LabelFor(model => model.History.Hystrect, htmlAttributes: new { @class = "control-label col-md-3" })
                                                     <div class="col-md-4">
                                                         @Html.DropDownListFor(model => model.History.Hystrect, ViewBag.statuslist as SelectList, "Select Status", new { @class = "form-control" })
                                                         @Html.ValidationMessageFor(model => model.History.Hystrect, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
+@*contraceptive*@
+
+                                                
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Nul_par , htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(m => m.History.Nul_par)
+                                                    </div>
+                                                </div>
+                                                                                              
+
 
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.History.G, htmlAttributes: new { @class = "control-label col-md-3" })
@@ -588,6 +626,16 @@
                                                     </div>
                                                 </div>
 
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.A, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.History.A, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.History.A, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                
+
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.History.LSCS, htmlAttributes: new { @class = "control-label col-md-3" })
                                                     <div class="col-md-4">
@@ -605,23 +653,445 @@
                                                 </div>
 
 
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Br_feed, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.History.Br_feed, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.History.Br_feed, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Contracep,  htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(m => m.History.Contracep)
+                                                    </div>
+                                                </div>
+
+                                                
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Hor_oral , htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(m => m.History.Hor_oral)
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Hor_injec, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(m => m.History.Hor_injec)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Hor_IUD, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(m => m.History.Hor_IUD)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Barrier, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(m => m.History.Barrier)
+                                                    </div>
+                                                </div>
+
+                                               
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Tubeco, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(m => m.History.Tubeco)
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Withdrawl, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(m => m.History.Withdrawl)
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Safe_perid, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(m => m.History.Safe_perid)
+                                                        </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Vasecto, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.CheckBoxFor(m => m.History.Vasecto)
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.History.Contra_spce, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    <div class="col-md-4">
+                                                        @Html.EditorFor(model => model.History.Contra_spce, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.History.Contra_spce, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                                                                                                        
 
 
 
+                                                
                                            </div>
                                             
                                             
                                             
+                                            @*Oral*@
                                             
-                                            
+
+                                             @*<div class="tab-pane" id="tab4">
+                                                <h3 class="block">Examination</h3>
+
+                                                 <div class="form-group">
+                                                     @Html.LabelFor(model => model.History.Contra_spce, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                     <div class="col-md-4">
+                                                         @Html.EditorFor(model => model.History.Contra_spce, new { htmlAttributes = new { @class = "form-control" } })
+                                                         @Html.ValidationMessageFor(model => model.History.Contra_spce, "", new { @class = "text-danger" })
+                                                     </div>
+                                                 </div>
+                                           
+
+
+                                            </div>*@
+
+
+
+
+
                                             <div class="tab-pane" id="tab4">
-                                                <h3 class="block">coming soon..</h3>
+                                                <h3 class="block">Examination</h3>
                                                 <h4 class="form-section">Test</h4>
 
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.exam.Height, htmlAttributes: new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-1">
+                                                        @Html.EditorFor(model => model.exam.Height, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.exam.Height, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    @*</div>*@
+
+                                                    @*<div class="form-group">*@
+                                                    @Html.LabelFor(model => model.exam.Weight, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    <div class="col-md-1">
+                                                        @Html.EditorFor(model => model.exam.Weight, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.exam.Weight, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <h4 class="block">   Oral Visual Examination</h4>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.exam.hygiene, htmlAttributes: new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-1">
+                                                        @Html.DropDownListFor(model => model.exam.hygiene, ViewBag.hygienelist as SelectList, "Select Hygiene", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.exam.hygiene, "", new { @class = "text-danger" })
+                                                    </div>
+
+                                                    @Html.LabelFor(model => model.exam.Cavity, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-2">
+                                                        @Html.DropDownListFor(model => model.exam.Cavity, ViewBag.conditionlist as SelectList, "Select Condition", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.exam.Cavity, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">If Abnormal</h4>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">1. Benign</h4>
+                                                </div>
 
 
 
-                                            </div>
+
+                                                <div class="form-group">
+
+                                                    @Html.LabelFor(model => model.exam.Aphthous, htmlAttributes: new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.Aphthous)
+                                                    </div>
+
+                                                    @Html.LabelFor(model => model.exam.Geo_Tongu, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.Geo_Tongu)
+                                                    </div>
+
+                                                    @Html.LabelFor(model => model.exam.Candisis, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.Candisis)
+                                                    </div>
+
+                                                </div>
+
+
+
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.exam.Melanoplak, htmlAttributes: new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.Melanoplak)
+                                                    </div>
+
+                                                    @Html.LabelFor(model => model.exam.For_Granul, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.For_Granul)
+                                                    </div>
+
+                                                    @Html.LabelFor(model => model.exam.Other_abn, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.Other_abn)
+                                                    </div>
+
+                                                    @Html.LabelFor(model => model.exam.Other_spc, htmlAttributes: new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-2">
+                                                        @Html.EditorFor(model => model.exam.Other_spc, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.exam.Other_spc, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">2. Precancerous/ Malignant</h4>
+                                                </div>
+
+
+                                                <div class="form-group">
+
+                                                    @Html.LabelFor(model => model.exam.Leukoplak, htmlAttributes: new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.Leukoplak)
+                                                    </div>
+
+                                                    @Html.LabelFor(model => model.exam.Erythropla, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.Erythropla)
+                                                    </div>
+
+                                                    @Html.LabelFor(model => model.exam.Sub_fibro, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.Sub_fibro)
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.exam.Sus_ulcer, htmlAttributes: new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.Sus_ulcer)
+                                                    </div>
+
+                                                    @Html.LabelFor(model => model.exam.Sus_growth, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-1">
+                                                        @Html.CheckBoxFor(m => m.exam.Sus_growth)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.exam.Neck_node, htmlAttributes: new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-2">
+                                                        @Html.DropDownListFor(model => model.exam.Neck_node, ViewBag.statuslist as SelectList, "Select Status", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.exam.Neck_node, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.exam.Oth_find, htmlAttributes: new { @class = "control-label col-md-1" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.exam.Oth_find, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.exam.Oth_find, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Head and Neck Sites Involved</h4>
+                                                    <h4 class="col-md-2">Right</h4>
+                                                    <h4 class="col-md-2">Left</h4>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Upper Lip</h4>
+                                                     <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RUpp_lip)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LUpp_lip)
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Lower Lip</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RLow_lip) 
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LLow_lip)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Labial Mucosa</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RLab_muc)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LLab_muc)
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Tongue Dorsal Surface</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RTong_dor)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LTong_dor)
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Tongue Ventral Surface</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RTong_vent)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LTong_vent)
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Hard Palate</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RH_palate)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LH_palate)
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Soft Palate</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RS_palate)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LS_palate)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Floor Of Mouth</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RFom)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LFom)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Lingual Sulcus</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RLin_sul)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LLin_sul)
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Upper Gum</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RUpp_gum)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LUpp_gum)
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Lower Gum</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RLow_gum)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LLow_gum)
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Buccal Mucosa</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RBmucosa)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LBmucosa)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Upper Sulcus</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RUpp_sul)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LUpp_sul)
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h4 class="col-md-2">Lower Sulcus</h4>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.RLow_sul)
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        @Html.CheckBoxFor(m => m.exam.LLow_sul)
+                                                    </div>
+                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                </div>   @*tab4 end*@
 
 
                                         </div>

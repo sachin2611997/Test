@@ -45,6 +45,17 @@ namespace Test.Controllers
             var Menolist = MenopauseQuery.ToList();
             ViewBag.menolist = new SelectList(Menolist, "Index1", "Value");
 
+            var HygieneQuery = (from s in db.Masters where s.Name == "Hygiene" select s);
+            var Hygienelist = HygieneQuery.ToList();
+            ViewBag.hygienelist = new SelectList(Hygienelist, "Index1", "Value");
+
+
+            var ConditionQuery = (from s in db.Masters where s.Name == "Condition" select s);
+            var Conditionlist = ConditionQuery.ToList();
+            ViewBag.conditionlist = new SelectList(Conditionlist, "Index1", "Value");
+
+
+
 
 
 
