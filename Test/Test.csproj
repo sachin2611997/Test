@@ -4813,6 +4813,7 @@
     <Compile Include="Models\history.cs" />
     <Compile Include="Models\Main.cs" />
     <Compile Include="Models\masters.cs" />
+    <Compile Include="Models\Query.cs" />
     <Compile Include="Models\test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
