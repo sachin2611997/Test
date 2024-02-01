@@ -64,6 +64,8 @@ namespace Test.Controllers
             var LifeStylelist = LifeStyleQuery.ToList();
             ViewBag.lifestylelist = new SelectList(LifeStylelist, "Index1", "Value");
 
+          
+
 
             return View();
         }
@@ -86,12 +88,12 @@ namespace Test.Controllers
             
 
             dd.AddRecord(m);
-            string id = m.Demos.P_id;
+          //  string id = m.Demos.P_id;
 
          // var add=  m.Demos.Address.Take(3);
        //  var a=   m.Demos.Address.Substring(0, 3);
           //  var g = db.Demos.Max(u => (string.IsNullOrEmpty(u.P_id)));
-           var rw= db.Demos.DefaultIfEmpty().Max(r => r.P_id == null);
+         //  var rw= db.Demos.DefaultIfEmpty().Max(r => r.P_id == null);
         //  var f=  string.Join("", add + id);
          //  var d= id + 000001;          
               
@@ -198,5 +200,8 @@ namespace Test.Controllers
             m.Demos.P_id = value + 1;
             return m.Demos.P_id ;
         }
+
+
+      
     }
 }
