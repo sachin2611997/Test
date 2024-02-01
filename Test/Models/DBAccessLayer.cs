@@ -277,62 +277,33 @@ namespace Test.Models
         public List<Main> GetRecords()
         {
             List<Main> main = new List<Main>();
-            SqlCommand cmd = new SqlCommand("sp_GetAllRecords", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter sd = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
+            string query = q.Getallrecords();
+            SqlCommand cmd = new SqlCommand(query, con);
+            //cmd.CommandType = CommandType.StoredProcedure;
             con.Open();
-            sd.Fill(dt);
-            con.Close();
-            foreach (DataRow dr in dt.Rows)
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
             {
-                main.Add(new Main
-                {
-                    Demos = new Demo
-                    {
-                        P_id = Convert.ToString(dr["P_id"]),
-                        Fname = Convert.ToString(dr["Fname"]),
-                        Mname = Convert.ToString(dr["Mname"]),
-                        Lname = Convert.ToString(dr["Lname"]),
-                       
-                        Sex = Convert.ToString(dr["Sex"]),
-                        Education_id = Convert.ToInt32(dr["Education_id"]),
-                        Mariatal_id = Convert.ToInt32(dr["Marital_id"]),
-                        Religion_id = Convert.ToInt32(dr["Religion_id"]),
-                        Occupation_id = Convert.ToInt32(dr["Occupation_id"]),
-                        Address = Convert.ToString(dr["Address"]),
-                        Pincode = Convert.ToInt32(dr["Pincode"]),
-                        Age=Convert.ToInt32(dr["Age"]),
-                    },
-                    Complaints = new complaints
-                    {
+                Main m = new Main();
+                m.Demos.P_id = Convert.ToString(dr["P_id"]);
+                 m.Demos.Fname = Convert.ToString(dr["Fname"]);
+                m.Demos.Mname = Convert.ToString(dr["Mname"]);
+                m.Demos.Lname = Convert.ToString(dr["Lname"]);
 
-                        P_id = Convert.ToString(dr["P_id"]),
-                        Red_patch_mouth = Convert.ToBoolean(dr["Red_patch_mouth"]),
-                        White_patch_mouth = Convert.ToBoolean(dr["White_patch_mouth"]),
-                        Ulcer = Convert.ToBoolean(dr["Ulcer"]),
-                        Leukoplakia = Convert.ToBoolean(dr["Leukoplakia"]),
-                        Erythroplakia = Convert.ToBoolean(dr["Erythroplakia"]),
-                        Extract_socket = Convert.ToBoolean(dr["Extract_socket"]),
-                        Diff_chewing = Convert.ToBoolean(dr["Diff_chewing"]),
-                        Diff_swallowing = Convert.ToBoolean(dr["Diff_swallowing"]),
-                        Diff_speaking = Convert.ToBoolean(dr["Diff_speaking"]),
-                        Diff_moving_tongue = Convert.ToBoolean(dr["Diff_moving_tongue"]),
-                        Diff_spicy_food = Convert.ToBoolean(dr["Diff_spicy_food"]),
-                        Change_voice = Convert.ToBoolean(dr["Change_voice"]),
-                        Breast_Lump = Convert.ToBoolean(dr["Breast_Lump"]),
-                        Nipple_discharge = Convert.ToBoolean(dr["Nipple_discharge"]),
-                        Foul_smelling = Convert.ToBoolean(dr["Foul_smelling"]),
-                        Post_coidal_bleeding = Convert.ToBoolean(dr["Post_coidal_bleeding"]),
-                        Spotting = Convert.ToBoolean(dr["Spotting"]),
-                        Abnormal_bleeding = Convert.ToBoolean(dr["Abnormal_bleeding"]),
-                        Others = Convert.ToBoolean(dr["Others"]),
-                        Others_specify = Convert.ToString(dr["Others_specify"])
+                m.Demos.Sex = Convert.ToString(dr["Sex"]);
+                m.Demos.Education_id = Convert.ToInt32(dr["Education_id"]);
+                m.Demos.Mariatal_id = Convert.ToInt32(dr["Marital_id"]);
+                m.Demos.Religion_id = Convert.ToInt32(dr["Religion_id"]);
+                m.Demos.Occupation_id = Convert.ToInt32(dr["Occupation_id"]);
+                m.Demos.Address = Convert.ToString(dr["Address"]);
+                m.Demos.Pincode = Convert.ToInt32(dr["Pincode"]);
+                m.Demos.Age = Convert.ToInt32(dr["Age"]);
 
-                    }
+                m.Complaints.P_id = Convert.ToString(dr["P_id"]);
 
-                });
             }
+
+            
             return main;
 
 

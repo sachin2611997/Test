@@ -1,81 +1,77 @@
-﻿@model Test.Models.test
+﻿<!DOCTYPE html>
+<html lang="en">
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>test</title>
+    
 </head>
+
 <body>
-    <form>
-
-        <div class="form-horizontal">
-            <h4>test</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CaseNo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CaseNo, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CaseNo, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="button" value="Create" class="btn btn-default" onclick="BtnClick()" />
-                </div>
-            </div>
+    <div class="container">
+        <div class="no-box">
+            <span class="no">1</span>
         </div>
-    </form>
-    
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
+
+        <button class="btn" onclick="prev()">
+            prev
+        </button>
+
+        <button class="btn" onclick="next()">
+            next
+        </button>
     </div>
+
+    <script>
+        var no_box = document
+            .querySelector('.no-box');
+
+        var i = 1;
+
+        function prev() {
+
+            // Start position
+            if (i == 1) {
+
+                // Add disabled attribute on
+                // prev button
+                document.getElementsByClassName(
+                        'prev').disabled = true;
+
+                // Remove disabled attribute
+                // from next button
+                document.getElementsByClassName(
+                        'next').disabled = false;
+            } else {
+                i--;
+                return setNo();
+            }
+        }
+
+        function next() {
+
+            // End position
+            if (i == 5) {
+
+                // Add disabled attribute on
+                // next button
+                document.getElementsByClassName(
+                        'next').disabled = true;
+
+                // Remove disabled attribute
+                // from prev button
+                document.getElementsByClassName(
+                        'prev').disabled = false;
+            } else {
+                i++;
+                return setNo();
+            }
+        }
+
+        function setNo() {
+
+            // Change innerhtml
+            return no_box.innerHTML = i;
+        }
+    </script>
 </body>
+
 </html>
-<script src="~/scripts/jquery-1.10.2.js"></script>
-<script src="~/scripts/jquery-1.10.2.min.js"></script>
-<script>
-
-    function BtnClick(){
-     
-        var name = $("#Name").val();
-
-        var caseNo = $("#CaseNo").val();
-
-
-        var obj = {
-
-            Name: name,
-            CaseNo:caseNo
-        }
-
-        SubmitForm(obj);
-    }
-
-
-    function SubmitForm(obj) {
-        $.ajax({
-            url: "/Home/test1",
-            method: "POST",
-            data: obj,
-        })
-        }
-</script>
