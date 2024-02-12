@@ -6,15 +6,13 @@ using System.Web;
 
 namespace Test.Models
 {
-    [Table("Test")]
+    [Table("SCR_DEMO")]
     public class test
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string CaseNo { get; set; }
-        //public DateTime RegisDate { get; set; }
-        //public string Sex { get; set; }
-        //public int  Gender { get; set; }
-
+        public string P_ID { get; set; }
+        public string FNAME { get; set; }
+        public int? EDU_ID { get; set; }
+        public int? AGE { get; set; }
+        public DateTime REC_DATE { get; set; }
     }
 }

@@ -245,7 +245,7 @@ var FormWizard = function () {
             $('#form_wizard_1 .button-submit').click(function () {
             //    function Create_Post() {
             //        var data = {
-            //            P_id: $('#Demos_P_id').val(),
+            //            P_ID: $('#Demos_P_ID').val(),
             //            Fname: $('#Demos_Fname').val(),
             //            Mname: $('#Demos_Mname').val(),
             //            Lname: $('#Demos_Lname').val(),

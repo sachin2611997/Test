@@ -8,7 +8,7 @@ namespace Test.Models
 {
     public class history
     {
-        public string P_id { get; set; }
+        public string P_ID { get; set; }
         [Display(Name ="Family History")]
         public bool Fam_hist { get; set; }
         public int Relative1 { get; set; }

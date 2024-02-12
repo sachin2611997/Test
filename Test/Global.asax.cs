@@ -12,10 +12,10 @@ namespace Test
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<Test.Models.DbEntity>(null);
-            AreaRegistration.RegisterAllAreas(); 
+           // Database.SetInitializer<Test.Models.DbEntity>(null);
+            AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-           
+
         }
     }
 }

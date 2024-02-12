@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using demo.Models;
 using Test.Models;
 
 namespace Test.Controllers
@@ -64,120 +65,97 @@ namespace Test.Controllers
             var LifeStylelist = LifeStyleQuery.ToList();
             ViewBag.lifestylelist = new SelectList(LifeStylelist, "Index1", "Value");
 
-          
-
-
             return View();
         }
 
-
-
-
-
-
-
-
-
-
-
         [HttpPost]
-        
-        public ActionResult CreatePost(Main m)
-        {
-           
-            
 
-            dd.AddRecord(m);
-          //  string id = m.Demos.P_id;
+        //public ActionResult CreatePost(Main m)
+        //{
 
-         // var add=  m.Demos.Address.Take(3);
-       //  var a=   m.Demos.Address.Substring(0, 3);
-          //  var g = db.Demos.Max(u => (string.IsNullOrEmpty(u.P_id)));
-         //  var rw= db.Demos.DefaultIfEmpty().Max(r => r.P_id == null);
-        //  var f=  string.Join("", add + id);
-         //  var d= id + 000001;          
-              
-            return RedirectToAction("Create");
-        }
+        //    dd.AddRecord(m);
+
+
+        //    return RedirectToAction("Create");
+        //}
+
 
         [HttpGet]
-        public ActionResult Edit(string id)
+        //public ActionResult Edit(string id)
+        //{
+
+
+        //    var data = dd.GetRecords().First(x => x.Demos.P_ID == id);
+
+        //    var query = (from s in db.Masters where s.Name == "Education" select s);
+        //    var list = query.ToList();
+        //    ViewBag.educalist = new SelectList(list, "Index1", "Value");
+
+        //    var OccupationQuery = (from s in db.Masters where s.Name == "Occupation" select s);
+        //    var Occupationlist = OccupationQuery.ToList();
+        //    ViewBag.occulist = new SelectList(Occupationlist, "Index1", "Value");
+
+        //    var MaritalQuery = (from s in db.Masters where s.Name == "Marital" select s);
+        //    var Maritallist = MaritalQuery.ToList();
+        //    ViewBag.maritilist = new SelectList(Maritallist, "Index1", "Value");
+
+        //    var ReligionQuery = (from s in db.Masters where s.Name == "Religion" select s);
+        //    var Religionllist = ReligionQuery.ToList();
+        //    ViewBag.religlist = new SelectList(Religionllist, "Index1", "Value");
+
+
+        //    return View(data);
+        //}
+
+        //[HttpPost]
+        //public ActionResult EditPost(Main main)
+        //{
+
+        //    var m = dd.EditRecord(main);
+        //    UpdateModel(m);
+        //    db.SaveChanges();
+
+
+        //    return RedirectToAction("Create");
+        //}
+
+        //[HttpGet]
+        //public ActionResult EditPage(string id)
+        //{
+        //    var data = dd.GetRecords().First(x => x.Demos.P_ID == id);
+
+        //    var query = (from s in db.Masters where s.Name == "Education" select s);
+        //    var list = query.ToList();
+        //    ViewBag.educalist = new SelectList(list, "Index1", "Value");
+
+        //    var OccupationQuery = (from s in db.Masters where s.Name == "Occupation" select s);
+        //    var Occupationlist = OccupationQuery.ToList();
+        //    ViewBag.occulist = new SelectList(Occupationlist, "Index1", "Value");
+
+        //    var MaritalQuery = (from s in db.Masters where s.Name == "Marital" select s);
+        //    var Maritallist = MaritalQuery.ToList();
+        //    ViewBag.maritilist = new SelectList(Maritallist, "Index1", "Value");
+
+        //    var ReligionQuery = (from s in db.Masters where s.Name == "Religion" select s);
+        //    var Religionllist = ReligionQuery.ToList();
+        //    ViewBag.religlist = new SelectList(Religionllist, "Index1", "Value");
+
+
+
+
+
+
+
+        //    return View(data);
+        //}
+
+        //[HttpPost]
+        //[ActionName("EditPage")]
+        public ActionResult EditPageId(string P_ID)
         {
 
-
-            var data = dd.GetRecords().First(x => x.Demos.P_id == id);
-
-            var query = (from s in db.Masters where s.Name == "Education" select s);
-            var list = query.ToList();
-            ViewBag.educalist = new SelectList(list, "Index1", "Value");
-
-            var OccupationQuery = (from s in db.Masters where s.Name == "Occupation" select s);
-            var Occupationlist = OccupationQuery.ToList();
-            ViewBag.occulist = new SelectList(Occupationlist, "Index1", "Value");
-
-            var MaritalQuery = (from s in db.Masters where s.Name == "Marital" select s);
-            var Maritallist = MaritalQuery.ToList();
-            ViewBag.maritilist = new SelectList(Maritallist, "Index1", "Value");
-
-            var ReligionQuery = (from s in db.Masters where s.Name == "Religion" select s);
-            var Religionllist = ReligionQuery.ToList();
-            ViewBag.religlist = new SelectList(Religionllist, "Index1", "Value");
-
-
-            return View(data);
+            return RedirectToAction("Edit", "Home", new { id = P_ID });
         }
-
-        [HttpPost]       
-        public ActionResult EditPost(Main main)
-        {
-
-            var m = dd.EditRecord(main);
-            UpdateModel(m);
-            db.SaveChanges();
-
-
-            return RedirectToAction("Create");
-        }
-
-        [HttpGet]
-        public ActionResult EditPage(string id)
-        {
-            var data = dd.GetRecords().First(x => x.Demos.P_id == id);
-
-            var query = (from s in db.Masters where s.Name == "Education" select s);
-            var list = query.ToList();
-            ViewBag.educalist = new SelectList(list, "Index1", "Value");
-
-            var OccupationQuery = (from s in db.Masters where s.Name == "Occupation" select s);
-            var Occupationlist = OccupationQuery.ToList();
-            ViewBag.occulist = new SelectList(Occupationlist, "Index1", "Value");
-
-            var MaritalQuery = (from s in db.Masters where s.Name == "Marital" select s);
-            var Maritallist = MaritalQuery.ToList();
-            ViewBag.maritilist = new SelectList(Maritallist, "Index1", "Value");
-
-            var ReligionQuery = (from s in db.Masters where s.Name == "Religion" select s);
-            var Religionllist = ReligionQuery.ToList();
-            ViewBag.religlist = new SelectList(Religionllist, "Index1", "Value");
-
-
-          
-
-
-
-
-            return View(data);
-        }
-
-        [HttpPost]
-        [ActionName("EditPage")]
-        public ActionResult EditPageId(string P_id)
-        {
-
-            return RedirectToAction("Edit", "Home", new { id = P_id });
-        }
-
-
 
 
         public ActionResult Page()
@@ -187,21 +165,37 @@ namespace Test.Controllers
 
         [HttpPost]
         [ActionName("Page")]
-        public ActionResult PageId(string P_id)
+        public ActionResult PageId(string P_ID)
         {
-            return RedirectToAction("EditPage", "Home", new { id = P_id });
+            return RedirectToAction("EditPage", "Home", new { id = P_ID });
         }
 
 
 
-        public string getstringid(Main m)
+
+
+
+
+
+
+        [HttpGet]
+        public ActionResult createtest()
         {
-          string value=  db.Demos.Where(x => x.P_id == m.Demos.P_id).Max(x => x.P_id);
-            m.Demos.P_id = value + 1;
-            return m.Demos.P_id ;
+
+            return View();
         }
-
-
-      
     }
 }
+
+        //[HttpPost]
+        //[ActionName("createtest")]
+        //public ActionResult create(test t)
+        //{
+
+        //    dd.addtest1(t);
+        //    return RedirectToAction("createtest");
+        //}
+
+
+
+    

@@ -7,7 +7,7 @@ namespace Test.Models
     public class complaints
     {
         [Key]
-        public string P_id { get; set; }
+        public string P_ID { get; set; }
         [Display(Name = "Red Patch in Mouth")]
         //  public int Red_patch_mouth { get; set; }
         public bool Red_patch_mouth { get; set; } 

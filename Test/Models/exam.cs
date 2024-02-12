@@ -8,7 +8,7 @@ namespace Test.Models
 {
     public class exam
     {
-        public string P_id { get; set; }
+        public string P_ID { get; set; }
 
 
         [Display(Name = "Height in cm")]
