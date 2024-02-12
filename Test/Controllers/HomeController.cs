@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -71,33 +72,14 @@ namespace Test.Controllers
         }
 
 
-
-
-
-
-
-
-
-
-
         [HttpPost]
         
         public ActionResult CreatePost(Main m)
         {
            
-            
-
-            dd.AddRecord(m);
-          //  string id = m.Demos.P_id;
-
-         // var add=  m.Demos.Address.Take(3);
-       //  var a=   m.Demos.Address.Substring(0, 3);
-          //  var g = db.Demos.Max(u => (string.IsNullOrEmpty(u.P_id)));
-         //  var rw= db.Demos.DefaultIfEmpty().Max(r => r.P_id == null);
-        //  var f=  string.Join("", add + id);
-         //  var d= id + 000001;          
-              
-            return RedirectToAction("Create");
+               dd.AddRecord(m);
+         
+             return RedirectToAction("Create");
         }
 
         [HttpGet]
@@ -105,7 +87,7 @@ namespace Test.Controllers
         {
 
 
-            var data = dd.GetRecords().First(x => x.Demos.P_id == id);
+            var data = dd.GetRecords().First(x => x.Demos.P_ID == id);
 
             var query = (from s in db.Masters where s.Name == "Education" select s);
             var list = query.ToList();
@@ -139,10 +121,33 @@ namespace Test.Controllers
             return RedirectToAction("Create");
         }
 
+
+        [HttpGet]
+        public ActionResult edittest(string id)
+            {
+            
+            var data = dd.gettest().FirstOrDefault(x=>x.P_ID==id);
+     
+           
+            return View(data);
+        }
+
+        [HttpPost]
+        [ActionName("edittest")]
+        public ActionResult EditPost(test t)
+        {
+            var data = dd.edittest(t);
+            UpdateModel(data);
+            db.SaveChanges();
+           
+            return RedirectToAction("test");
+        }
+
+
         [HttpGet]
         public ActionResult EditPage(string id)
         {
-            var data = dd.GetRecords().First(x => x.Demos.P_id == id);
+            var data = dd.GetRecords().First(x => x.Demos.P_ID == id);
 
             var query = (from s in db.Masters where s.Name == "Education" select s);
             var list = query.ToList();
@@ -171,10 +176,10 @@ namespace Test.Controllers
 
         [HttpPost]
         [ActionName("EditPage")]
-        public ActionResult EditPageId(string P_id)
+        public ActionResult EditPageId(string P_ID)
         {
 
-            return RedirectToAction("Edit", "Home", new { id = P_id });
+            return RedirectToAction("Edit", "Home", new { id = P_ID });
         }
 
 
@@ -187,21 +192,37 @@ namespace Test.Controllers
 
         [HttpPost]
         [ActionName("Page")]
-        public ActionResult PageId(string P_id)
+        public ActionResult PageId(string P_ID)
         {
-            return RedirectToAction("EditPage", "Home", new { id = P_id });
+            return RedirectToAction("EditPage", "Home", new { id = P_ID });
         }
 
 
 
-        public string getstringid(Main m)
+        [HttpGet]
+        public ActionResult createtest()
         {
-          string value=  db.Demos.Where(x => x.P_id == m.Demos.P_id).Max(x => x.P_id);
-            m.Demos.P_id = value + 1;
-            return m.Demos.P_id ;
+           
+            return View();
+        }
+        [HttpPost]
+        [ActionName("createtest")]
+        public ActionResult create(test t)
+        {
+           
+          
+           dd.addtest1(t);
+            return RedirectToAction("createtest");
         }
 
+        public ActionResult test()
+        {
+           
+          var list= dd.gettest();
+            
+            return View(list);
+        }
 
-      
+       
     }
 }

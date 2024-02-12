@@ -1,27 +1,38 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Test.Models
 
 {
+    [Table("SCR_DEMO")]
     public class Demo
     {
-          
+
         [Key]
-        public string P_id { get; set; }
-        public string Fname { get; set; } 
-        public string Mname { get; set; } 
-        public string Lname { get; set; }
-        public int? Age { get; set; }
-        public string Sex { get; set; }
+        public string P_ID { get; set; }
+        public string FNAME { get; set; }
+        public string MNAME { get; set; }
+        public string LNAME { get; set; }
+        public int? AGE { get; set; }
+        public string SEX { get; set; }
         [Display(Name = "Education")]
-        public int? Education_id { get; set; }
+        public int? EDU_ID { get; set; }
         [Display(Name = "Marital Status")]
-        public int? Mariatal_id { get; set; }
+        public int? MAR_ID { get; set; }
         [Display(Name = "Religion")]
-        public int? Religion_id { get; set; }
+        public int? REL_ID { get; set; }
         [Display(Name = "Occupation")]
-        public int? Occupation_id { get; set; }
-        public string Address { get; set; } 
-        public int? Pincode { get; set; }
+        public int? OCC_ID { get; set; }
+        public string ADDRESS { get; set; }
+        public int? PINCODE { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? REC_DATE { get; set; }
+
+        public int? PHC { get; set; }
+
+        public int? DISTRICT { get; set; }
 
     }
 }

@@ -4833,6 +4833,8 @@
     <Content Include="Views\Home\EditPage.cshtml" />
     <Content Include="Views\Home\Page.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\createtest.cshtml" />
+    <Content Include="Views\Home\edittest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

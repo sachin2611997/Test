@@ -1,77 +1,57 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@model IEnumerable<Test.Models.test>
 
-<head>
-    
-</head>
+@{
+    ViewBag.Title = "test";
+}
 
-<body>
-    <div class="container">
-        <div class="no-box">
-            <span class="no">1</span>
-        </div>
+<h2>test</h2>
 
-        <button class="btn" onclick="prev()">
-            prev
-        </button>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.P_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EDU_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AGE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REC_DATE)
+        </th>
+        <th></th>
+    </tr>
 
-        <button class="btn" onclick="next()">
-            next
-        </button>
-    </div>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.P_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EDU_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AGE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REC_DATE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
 
-    <script>
-        var no_box = document
-            .querySelector('.no-box');
-
-        var i = 1;
-
-        function prev() {
-
-            // Start position
-            if (i == 1) {
-
-                // Add disabled attribute on
-                // prev button
-                document.getElementsByClassName(
-                        'prev').disabled = true;
-
-                // Remove disabled attribute
-                // from next button
-                document.getElementsByClassName(
-                        'next').disabled = false;
-            } else {
-                i--;
-                return setNo();
-            }
-        }
-
-        function next() {
-
-            // End position
-            if (i == 5) {
-
-                // Add disabled attribute on
-                // next button
-                document.getElementsByClassName(
-                        'next').disabled = true;
-
-                // Remove disabled attribute
-                // from prev button
-                document.getElementsByClassName(
-                        'prev').disabled = false;
-            } else {
-                i++;
-                return setNo();
-            }
-        }
-
-        function setNo() {
-
-            // Change innerhtml
-            return no_box.innerHTML = i;
-        }
-    </script>
-</body>
-
-</html>
+</table>

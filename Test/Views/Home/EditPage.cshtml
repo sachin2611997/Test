@@ -127,10 +127,10 @@
                                                 <h3 class="block">Provide your account details</h3>
 
                                                 <div class="form-group">
-                                                    @Html.LabelFor(model => model.Demos.P_id, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    @Html.LabelFor(model => model.Demos.P_ID, htmlAttributes: new { @class = "control-label col-md-3" })
                                                     <div class="col-md-4">
-                                                        @Html.EditorFor(model => model.Demos.P_id, new { htmlAttributes = new { @class = "form-control" , @readonly = "readonly" } })
-                                                        @Html.ValidationMessageFor(model => model.Demos.P_id, "", new { @class = "text-danger" })
+                                                        @Html.EditorFor(model => model.Demos.P_ID, new { htmlAttributes = new { @class = "form-control" , @readonly = "readonly" } })
+                                                        @Html.ValidationMessageFor(model => model.Demos.P_ID, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
 
@@ -141,10 +141,10 @@
 
 
                                                 <div class="form-group">
-                                                    @Html.LabelFor(model => model.Demos.Fname, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    @Html.LabelFor(model => model.Demos.FNAME, htmlAttributes: new { @class = "control-label col-md-3" })
                                                     <div class="col-md-4">
-                                                        @Html.EditorFor(model => model.Demos.Fname, new { htmlAttributes = new { @class = "form-control" } })
-                                                        @Html.ValidationMessageFor(model => model.Demos.Fname, "", new { @class = "text-danger" })
+                                                        @Html.EditorFor(model => model.Demos.FNAME, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Demos.FNAME, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
 
@@ -171,20 +171,27 @@
                                                         @Html.ValidationMessageFor(model => model.Demos.Age, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
+                                              
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.Demos.Sex, htmlAttributes: new { @class = "control-label col-md-3" })
+
                                                     <div class="col-md-4">
-                                                        Male
-                                                        @Html.RadioButtonFor(model => model.Demos.Sex, "Mal")
 
-                                                        Female
-                                                        @Html.RadioButtonFor(model => model.Demos.Sex, "Fem")
+                                                        <label class="radio-list">
+                                                            Male   @Html.RadioButtonFor(model => model.Demos.Sex, "Mal")
+                                                        </label>
+                                                        <label class="radio-list">
+                                                            Female @Html.RadioButtonFor(model => model.Demos.Sex, "Fem")
+                                                        </label>
+                                                        <label class="radio-list">
+                                                            Other  @Html.RadioButtonFor(model => model.Demos.Sex, "Oth")
+                                                        </label>
 
-                                                        Other
-                                                        @Html.RadioButtonFor(model => model.Demos.Sex, "Oth")
 
 
                                                     </div>
+
+
                                                 </div>
 
 
@@ -199,10 +206,10 @@
 
 
                                                 <div class="form-group">
-                                                    @Html.LabelFor(model => model.Demos.Mariatal_id, htmlAttributes: new { @class = "control-label col-md-3" })
+                                                    @Html.LabelFor(model => model.Demos.Marital_id, htmlAttributes: new { @class = "control-label col-md-3" })
                                                     <div class="col-md-4">
-                                                        @Html.DropDownListFor(model => model.Demos.Mariatal_id, ViewBag.maritilist as SelectList, "Select Marital Status", new { @class = "form-control" })
-                                                        @Html.ValidationMessageFor(model => model.Demos.Mariatal_id, "", new { @class = "text-danger" })
+                                                        @Html.DropDownListFor(model => model.Demos.Marital_id, ViewBag.maritilist as SelectList, "Select Marital Status", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.Demos.Marital_id, "", new { @class = "text-danger" })
                                                     </div>
                                                 </div>
 
@@ -475,14 +482,14 @@
 
 
     function BtnClick() {
-        var id = $("#Demos_P_id").val();
-        var fname = $("#Demos_Fname").val();
+        var id = $("#Demos_P_ID").val();
+        var FNAME = $("#Demos_FNAME").val();
         var mname = $("#Demos_Mname").val();
         var lname = $("#Demos_Lname").val();
         var age   = $("#Demos_Age").val();
         var sex = $(":radio:checked").val();
         var educationid = $("#Demos_Education_id").val();
-        var mariatalid = $("#Demos_Mariatal_id").val();
+        var mariatalid = $("#Demos_Marital_id").val();
         var religionid = $("#Demos_Religion_id").val();
         var occupationid = $("#Demos_Occupation_id").val();
         var address = $("#Demos_Address").val();
@@ -515,14 +522,14 @@
             Demos:
                 {
 
-                    P_id: id,
-                    Fname: fname,
+                    P_ID: id,
+                    FNAME: FNAME,
                     Mname: mname,
                     Lname: lname,
                     Age: age,
                     Sex: sex,
                     Education_id: educationid,
-                    Mariatal_id: mariatalid,
+                    Marital_id: mariatalid,
                     Religion_id: religionid,
                     Occupation_id: occupationid,
                     Address: address,
