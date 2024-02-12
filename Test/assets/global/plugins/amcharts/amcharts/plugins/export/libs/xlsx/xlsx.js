@@ -3250,12 +3250,12 @@ function parse_RkRec(blob, length) {
 function parse_AddinUdf(blob, length) {
 	blob.l += 4; length -= 4;
 	var l = blob.l + length;
-	var udfName = parse_ShortXLUnicodeString(blob, length);
+	var udFNAME = parse_ShortXLUnicodeString(blob, length);
 	var cb = blob.read_shift(2);
 	l -= blob.l;
 	if(cb !== l) throw "Malformed AddinUdf: padding = " + l + " != " + cb;
 	blob.l += cb;
-	return udfName;
+	return udFNAME;
 }
 
 /* 2.5.209 TODO: Check sizes */
@@ -3933,7 +3933,7 @@ var parse_RRDMoveEnd = parsenoop;
 var parse_RRDInsDelBegin = parsenoop;
 var parse_RRDInsDelEnd = parsenoop;
 var parse_RRDConflict = parsenoop;
-var parse_RRDDefName = parsenoop;
+var parse_RRDDeFNAME = parsenoop;
 var parse_RRDRstEtxp = parsenoop;
 var parse_LRng = parsenoop;
 var parse_CUsr = parsenoop;
@@ -10197,7 +10197,7 @@ var XLSBRecordEnum = {
 	0x019C: { n:"BrtRRUserView", f:parsenoop },
 	0x019D: { n:"BrtRRRenSheet", f:parsenoop },
 	0x019E: { n:"BrtRRInsertSh", f:parsenoop },
-	0x019F: { n:"BrtRRDefName", f:parsenoop },
+	0x019F: { n:"BrtRRDeFNAME", f:parsenoop },
 	0x01A0: { n:"BrtRRNote", f:parsenoop },
 	0x01A1: { n:"BrtRRConflict", f:parsenoop },
 	0x01A2: { n:"BrtRRTQSIF", f:parsenoop },
@@ -10830,7 +10830,7 @@ var XLSRecordEnum = {
 	0x0150: { n:"RRDInsDelBegin", f:parse_RRDInsDelBegin },
 	0x0151: { n:"RRDInsDelEnd", f:parse_RRDInsDelEnd },
 	0x0152: { n:"RRDConflict", f:parse_RRDConflict },
-	0x0153: { n:"RRDDefName", f:parse_RRDDefName },
+	0x0153: { n:"RRDDeFNAME", f:parse_RRDDeFNAME },
 	0x0154: { n:"RRDRstEtxp", f:parse_RRDRstEtxp },
 	0x015f: { n:"LRng", f:parse_LRng },
 	0x0160: { n:"UsesELFs", f:parse_UsesELFs },

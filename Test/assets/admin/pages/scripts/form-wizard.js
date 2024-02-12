@@ -246,7 +246,7 @@ var FormWizard = function () {
             //    function Create_Post() {
             //        var data = {
             //            P_ID: $('#Demos_P_ID').val(),
-            //            Fname: $('#Demos_Fname').val(),
+            //            FNAME: $('#Demos_FNAME').val(),
             //            Mname: $('#Demos_Mname').val(),
             //            Lname: $('#Demos_Lname').val(),
             //            Sex: $('#Demos_Sex').val()

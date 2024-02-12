@@ -45,11 +45,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept">
@@ -4804,7 +4804,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\sandyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4834,17 +4833,8 @@
     <Content Include="Views\Home\EditPage.cshtml" />
     <Content Include="Views\Home\Page.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\sachin.cshtml" />
-    <Content Include="Views\sandy.cshtml" />
-    <Content Include="Views\Home\sandy.cshtml" />
-    <Content Include="Views\sandy1.cshtml" />
-    <Content Include="Views\Home\sandy1.cshtml" />
-    <Content Include="Views\sandy2.cshtml" />
-    <Content Include="Views\Home\sandy3.cshtml" />
-    <Content Include="Views\sandy\Index.cshtml" />
-    <Content Include="Views\Home\LIST.cshtml" />
-    <Content Include="Views\Home\testlist.cshtml" />
     <Content Include="Views\Home\createtest.cshtml" />
+    <Content Include="Views\Home\edittest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
