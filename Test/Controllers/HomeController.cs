@@ -1,4 +1,5 @@
-﻿using System;
+﻿using demo.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Test.Controllers
     public class HomeController : Controller
     {
         DbEntity db = new DbEntity();
+        Query q = new Query();
         DBAccessLayer dd = new DBAccessLayer();
         // GET: Home
 
@@ -18,50 +20,50 @@ namespace Test.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            var query = (from s in db.Masters where s.Name == "Education" select s);
-            var list = query.ToList();
-            ViewBag.educalist = new SelectList(list, "Index1", "Value");
+            var Educationquery = q.educationlist();
+            var Educationlist = Educationquery.ToList();
+            ViewBag.educalist = new SelectList(Educationlist, "Index1", "Value");
 
-            var OccupationQuery = (from s in db.Masters where s.Name == "Occupation" select s);
+            var OccupationQuery = q.occupationlist();
             var Occupationlist = OccupationQuery.ToList();
             ViewBag.occulist = new SelectList(Occupationlist, "Index1", "Value");
 
-            var MaritalQuery = (from s in db.Masters where s.Name == "Marital" select s);
+            var MaritalQuery = q.maritallist();
             var Maritallist = MaritalQuery.ToList();
             ViewBag.maritilist = new SelectList(Maritallist, "Index1", "Value");
 
-            var ReligionQuery = (from s in db.Masters where s.Name == "Religion" select s);
+            var ReligionQuery =q.religionlist();
             var Religionllist = ReligionQuery.ToList();
             ViewBag.religlist = new SelectList(Religionllist, "Index1", "Value");
 
-            var StatusQuery = (from s in db.Masters where s.Name == "Status" select s);
+            var StatusQuery = q.statuslist();
             var Statuslist = StatusQuery.ToList();
             ViewBag.statuslist = new SelectList(Statuslist, "Index1", "Value");
 
-            var RelativeQuery = (from s in db.Masters where s.Name == "Relative" select s);
+            var RelativeQuery = q.relativelist();
             var Relativelist = RelativeQuery.ToList();
             ViewBag.relativelist = new SelectList(Relativelist, "Index1", "Value");
 
-            var MenopauseQuery = (from s in db.Masters where s.Name == "Menopause" select s);
+            var MenopauseQuery = q.menopauselist();
             var Menolist = MenopauseQuery.ToList();
             ViewBag.menolist = new SelectList(Menolist, "Index1", "Value");
 
-            var HygieneQuery = (from s in db.Masters where s.Name == "Hygiene" select s);
+            var HygieneQuery = q.hygienelist();
             var Hygienelist = HygieneQuery.ToList();
             ViewBag.hygienelist = new SelectList(Hygienelist, "Index1", "Value");
 
 
-            var ConditionQuery = (from s in db.Masters where s.Name == "Condition" select s);
+            var ConditionQuery = q.conditionlist();
             var Conditionlist = ConditionQuery.ToList();
             ViewBag.conditionlist = new SelectList(Conditionlist, "Index1", "Value");
 
 
-            var HabitQuery = (from s in db.Masters where s.Name == "Habit" select s);
+            var HabitQuery = q.habitlist();
             var Habitlist = HabitQuery.ToList();
             ViewBag.habitlist = new SelectList(Habitlist, "Index1", "Value");
 
 
-            var LifeStyleQuery = (from s in db.Masters where s.Name == "LifeStyle" select s);
+            var LifeStyleQuery = q.lifeStylelist() ;
             var LifeStylelist = LifeStyleQuery.ToList();
             ViewBag.lifestylelist = new SelectList(LifeStylelist, "Index1", "Value");
 

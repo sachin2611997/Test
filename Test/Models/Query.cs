@@ -46,5 +46,47 @@ namespace Test.Models
         {
             return "select * from REGLIB.MASTER WHERE NAME=Education";
         }
+
+        public string occupationlist()
+        {
+            return "select * from REGLIB.MASTER WHERE NAME=Occupation";
+        }
+        public string maritallist()
+        {
+            return "select * from REGLIB.MASTER WHERE NAME=Marital";
+        }
+        public string religionlist()
+        {
+            return "select * from REGLIB.MASTER WHERE NAME=Religion";
+        }
+        public string statuslist()
+        {
+            return "select * from REGLIB.MASTER WHERE NAME=Status";
+        }
+        public string relativelist()
+        {
+            return "select * from REGLIB.MASTER WHERE NAME=Relative";
+        }
+        public string menopauselist()
+        {
+            return "select * from REGLIB.MASTER WHERE NAME=Menopause";
+        }
+        public string hygienelist()
+        {
+            return "select * from REGLIB.MASTER WHERE NAME=Hygiene";
+        }
+        public string conditionlist()
+        {
+            return "select * from REGLIB.MASTER WHERE NAME=Condition";
+        }
+        public string habitlist()
+        {
+            return "select * from REGLIB.MASTER WHERE NAME=Habit";
+        }
+        public string lifeStylelist()
+        {
+            return "select * from REGLIB.MASTER WHERE NAME=LifeStyle";
+        }
+        
     }
 }
