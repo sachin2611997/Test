@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Test.Models
 {
    
-        [Table("masters")]
+        [Table("MASTER")]
         public class masters
         {
             [Key]
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public int Index1 { get; set; }
-            public string Value { get; set; }
+         //   public int Id { get; set; }
+            public string NAME { get; set; }
+            public int INDEX { get; set; }
+            public string VALUE { get; set; }
 
 
         }

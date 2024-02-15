@@ -187,20 +187,20 @@
                                                     <div class="col-md-4">
 
                                                         @*<label class="radio-list">
-                                                            Male   @Html.RadioButtonFor(model => model.Demos.SEX, "Mal")
-                                                        </label>
-                                                        <label class="radio-list">
-                                                            Female @Html.RadioButtonFor(model => model.Demos.SEX, "Fem")
-                                                        </label>
-                                                        <label class="radio-list">
-                                                            Other  @Html.RadioButtonFor(model => model.Demos.SEX, "Oth")
-                                                        </label>*@
+                                                                Male   @Html.RadioButtonFor(model => model.Demos.SEX, "Mal")
+                                                            </label>
+                                                            <label class="radio-list">
+                                                                Female @Html.RadioButtonFor(model => model.Demos.SEX, "Fem")
+                                                            </label>
+                                                            <label class="radio-list">
+                                                                Other  @Html.RadioButtonFor(model => model.Demos.SEX, "Oth")
+                                                            </label>*@
 
                                                         @foreach (var lists in (SelectList)ViewBag.sexlist)
                                                         {
 
                                                             @*@Html.RadioButtonFor(m => m.Demos.SEX, lists.Value, new { id = "list" + lists.Value, name = "Lists", @value = lists.Value, @text = lists.Text })*@
-                                                               // <label for="list@(lists.Value)" class="radio-list">@lists.Text</label>
+                                                            // <label for="list@(lists.Value)" class="radio-list">@lists.Text</label>
                                                             <label class="radio-list">
                                                                 @lists.Text @Html.RadioButtonFor(m => m.Demos.SEX, lists.Value)
                                                             </label>
@@ -1640,7 +1640,7 @@
 
     function SubmitForm(obj) {
         $.ajax({
-            url: "/Home/CreatePost",
+            url: "/Home/EditPost",
             method: "POST",
             data: obj,
             success: function (data) {

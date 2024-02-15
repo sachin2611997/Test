@@ -17,9 +17,11 @@ namespace Test.Models
         public Nullable<Int32> EDU_ID { get; set; }
         public Nullable<Int32> AGE { get; set; }
 
-      //  [DataType(DataType.Date)]
-       [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        public string REC_DATE { get; set; }
+      // [DataType(DataType.Date)]
+       [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime REC_DATE { get; set; }
+
+    
 
     }
 }

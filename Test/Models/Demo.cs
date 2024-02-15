@@ -15,7 +15,8 @@ namespace Test.Models
         public string MNAME { get; set; }
         public string LNAME { get; set; }
         public int? AGE { get; set; }
-        public string SEX { get; set; }
+        [Display(Name = "Gender")]
+        public int? SEX { get; set; }
         [Display(Name = "Education")]
         public int? EDU_ID { get; set; }
         [Display(Name = "Marital Status")]
@@ -26,9 +27,9 @@ namespace Test.Models
         public int? OCC_ID { get; set; }
         public string ADDRESS { get; set; }
         public int? PINCODE { get; set; }
-        [DataType(DataType.Date)]
+      [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime? REC_DATE { get; set; }
+        public DateTime REC_DATE { get; set; }
 
         public int? PHC { get; set; }
 
